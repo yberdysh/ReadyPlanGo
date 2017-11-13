@@ -7,7 +7,18 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '4d0845c28e0eb039188b00532d0b85cfe290e256e366759d828d0a0e9da6792b37a1684d17243d53ce18f476da40a92e8393646287252592ca9b3277245e0ef2'
-
+  # Note: this takes the config variable passed by devise and runs the omniauth function over it, specifying
+  # 3 things: First, what type of authorization can be used (in this case facebook, using the FB_ID and FB_Secret keys provided
+  # by facebook)
+  # Second, it sets the the scope of the authorization to be equivalent to using email.
+  # Third, it sets what infor fields it will draw info from facebook
+  # Fourth, it sets an image to be taken from facebook and sets it to a certain size
+  # Fifth, it sets the image url as secure (What does this mean?)
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
+    scope: 'email',
+    info_fields: 'email, first_name, last_name',
+    image_size: 'square',  # 50x50, guaranteed ratio
+    secure_image_url: true
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
