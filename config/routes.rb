@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users, only: [:show, :edit, :update]
-  get 'dashboard', to: 'pages#dashboard'
-
+  get 'destination_selector', to: 'pages#dashboard'
+  resources :destinations, only: [:create]
+  resources :countries, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
