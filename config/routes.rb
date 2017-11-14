@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :destinations, only: [:create]
   resources :countries, only: [:show]
 
-  get 'destination_selector', to: 'pages#dashboard'
+  get 'destination_select', to: 'pages#destination_select'
+
 end
