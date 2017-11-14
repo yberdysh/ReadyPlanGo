@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get 'destination_selector', to: 'pages#dashboard'
   resources :destinations, only: [:create]
   resources :countries, only: [:show]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get 'destination_select', to: 'pages#destination_select'
+
 end
