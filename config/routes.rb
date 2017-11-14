@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   get 'countries/show'
-  get 'user/show'
-
-  get 'user/edit'
-
-  get 'user/update'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
