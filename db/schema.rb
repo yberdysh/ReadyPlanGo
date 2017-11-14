@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171114203001) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,10 +51,10 @@ ActiveRecord::Schema.define(version: 20171114203001) do
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
-    t.string   "token"
-    t.datetime "token_expiry"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "token"
+    t.datetime "token_expiry"
     t.date     "DOB"
     t.integer  "number_countries"
     t.integer  "years"
