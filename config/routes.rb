@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'user/show'
-
-  get 'user/edit'
-
-  get 'user/update'
+  get 'countries/show'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  resources :countries, only: [:show]
+
   root to: 'pages#home'
 
   resources :users, only: [:show, :edit, :update]
