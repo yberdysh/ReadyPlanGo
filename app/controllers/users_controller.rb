@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :update ]
 
   def show
@@ -13,6 +13,7 @@ class UserController < ApplicationController
       redirect_to user_path(@user)
     else
       render :edit
+    end
   end
 
   private
