@@ -2,7 +2,7 @@ class Country < ApplicationRecord
   has_many :destinations
 
 
-    COUNTRIES = [
+    COUNTRIES =
     Africa: [
       "Algeria",
       "Angola",
@@ -196,5 +196,5 @@ class Country < ApplicationRecord
       "Tonga",
       "Tuvalu"
     ]
-  ]
+
 end
