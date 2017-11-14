@@ -1,0 +1,12 @@
+.sign-in-button {
+  border: solid red 1px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: red;
+//  width: 70px;
+  &:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+}
