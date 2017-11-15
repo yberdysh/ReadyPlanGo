@@ -1,13 +1,10 @@
-class UsersPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
     end
   end
-  def show
-    true
-  end
-  def edit
+   def edit
     true
   end
 
