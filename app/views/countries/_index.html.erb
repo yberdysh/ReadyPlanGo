@@ -1,6 +1,10 @@
-<% Country::CONTINENTS.each do |continent| %>
+<% Country::CONTINENTS.each_with_index do |continent| %>
   <h2><%= continent %></h2>
-  <%= render partial: 'shared/card', collection: @countries.where(continent: continent) %>
+  <% @countries.where(continent: continent).find_in_batches(batch_size: 15) do |fifteen_countries| %>
+      <div class="scrolling-wrapper">
+        <%= render partial: 'shared/card', collection: fifteen_countries %>
+      </div>
+  <% end %>
 <% end %>
 
 
