@@ -5,5 +5,6 @@ class CountriesController < ApplicationController
     else
       @country = Country.find_by_name(params[:id])
     end
+    authorize @country
   end
 end

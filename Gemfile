@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'pundit'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
@@ -19,6 +20,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'geocoder'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 group :development, :test do
   gem 'pry-byebug'
