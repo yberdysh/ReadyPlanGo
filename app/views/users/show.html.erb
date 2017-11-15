@@ -4,9 +4,10 @@
   <h2><%= @user.email %> </h2>
   <h3> Your goal is to visit <%= @user.number_countries %> countries over the next
   <%= @user.years %> years. Keep up the hard work!! </h3>
-  <% denomenator = @user.years %>
-  <% numerator = @user.number_countries %>
-  <h3> If you visit <%= numerator/denomenator %> every year, you will complete your goal! </h3>
+  <% denomenator = @user.years.to_f %>
+  <% numerator = @user.number_countries.to_f %>
+  <% result = numerator/denomenator %>
+  <h3> If you visit <%= result.round %> countries every year, you will complete your goal! </h3>
   <h3> Here is a list of places you would like to visit. </h3>
   <ul>
     <% @user.destinations.each do |country| %>
