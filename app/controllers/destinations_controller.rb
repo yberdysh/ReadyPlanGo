@@ -8,6 +8,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.new(destination_params)
     @destination.country = Country.find(destination_params[:country_id])
     @destination.user_id = current_user.id
+    authorize @destination
     @destination.save!
   end
 

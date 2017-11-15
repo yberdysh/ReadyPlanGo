@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :update ]
 
   def show
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -9,6 +12,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    authorize @user
     if @user.save
       redirect_to user_path(@user)
     else
@@ -23,5 +27,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    authorize @user
   end
 end
