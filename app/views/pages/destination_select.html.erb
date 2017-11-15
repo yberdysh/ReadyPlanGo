@@ -1,4 +1,8 @@
+<h1>Select countries</h1>
 <%= render partial: 'countries/index', countries: @countries %>
-<%= render partial 'countries/index' %>
-<%= render partial 'destinations/index' %>
 
+<h2>Countries I've been to</h2>
+<%= render partial: 'destinations/index', destinations: @destinations %>
+
+<h3>Countries I want to go</h3>
+<%= render partial: 'destinations/index', destinations: @destinations %>
