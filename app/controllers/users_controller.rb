@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    authorize @user
     if @user.save
       redirect_to user_path(@user)
     else
@@ -23,5 +24,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    authorize @user
   end
 end
