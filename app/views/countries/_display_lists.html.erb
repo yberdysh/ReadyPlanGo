@@ -1,3 +1,4 @@
+<div class="display-lists">
 <% Country::CONTINENTS.each_with_index do |continent| %>
   <h2><%= continent %></h2>
   <% @countries.where(continent: continent).find_in_batches(batch_size: 30) do |thirty_countries| %>
@@ -6,6 +7,7 @@
       </div>
   <% end %>
 <% end %>
+</div>
 
 
 

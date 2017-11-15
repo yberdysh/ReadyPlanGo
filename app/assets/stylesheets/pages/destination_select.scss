@@ -1,13 +1,24 @@
 
-.container {
+.destinations-select-container {
     display: flex;
     align-items: space-between;
+    flex-direction: row;
+    position: absolute;
+    top: 70px;
+    &>div {
+      padding: 2vh 1vw;
+    }
 }
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
+.sidebar {
+    width: 20vw;
     min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+.display-lists {
+    width: 80vw;
 }
 
 #sidebar.active {

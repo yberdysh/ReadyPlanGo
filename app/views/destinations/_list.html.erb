@@ -1,3 +1,6 @@
-<% destinations.each do |destination| %>
-  <%= render partial: "countries/card", object: destination.country %>
-<% end %>
+<div>
+  <h3><%= header_content %></h3>
+  <% destinations.each do |destination| %>
+    <%= render partial: "countries/card", object: destination.country %>
+  <% end %>
+</div>
