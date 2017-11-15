@@ -1,0 +1,11 @@
+<%= render partial: 'destinations/list', locals: {
+  destinations: destinations.where(has_been: true),
+  header_content: "Countries I've Been to"} %>
+
+<%= render partial: 'destinations/list', locals: {
+  destinations: destinations.where(has_been: false, priority: false),
+  header_content: "Countries I want to visit"} %>
+
+<%= render partial: 'destinations/list', locals: {
+  destinations: destinations.where(priority: true),
+  header_content: "High Priority"} %>
