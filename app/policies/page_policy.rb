@@ -4,7 +4,4 @@ class PagePolicy < ApplicationPolicy
       scope
     end
   end
-  def destination_select
-    true
-  end
 end

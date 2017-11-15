@@ -34,10 +34,6 @@ class ApplicationPolicy
     false
   end
 
-  def destination_select
-    false
-  end
-
   def scope
     Pundit.policy_scope!(user, record.class)
   end
