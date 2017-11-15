@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :countries, only: [:show]
 
   get 'destination_select', to: 'pages#destination_select'
+  get 'map', to: 'pages#map'
 
 end

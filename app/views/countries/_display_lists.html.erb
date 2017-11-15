@@ -2,7 +2,7 @@
   <h2><%= continent %></h2>
   <% @countries.where(continent: continent).find_in_batches(batch_size: 30) do |thirty_countries| %>
       <div class="scrolling-wrapper">
-        <%= render partial: 'shared/card', collection: thirty_countries %>
+        <%= render partial: 'countries/card', collection: thirty_countries %>
       </div>
   <% end %>
 <% end %>

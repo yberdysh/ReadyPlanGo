@@ -1,8 +1,9 @@
-<h1>Select countries</h1>
-<%= render partial: 'countries/index', countries: @countries %>
+<div class="container">
 
-<h2>Countries I've been to</h2>
-<%= render partial: 'destinations/index', destinations: @destinations %>
+  <div class="sidebar">
+    <%= render partial: 'destinations/display_lists', locals: {destinations: @destinations} %>
+  </div>
 
-<h3>Countries I want to go</h3>
-<%= render partial: 'destinations/index', destinations: @destinations %>
+    <%= render partial: 'countries/display_lists', countries: @countries %>
+
+</div>

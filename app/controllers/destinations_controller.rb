@@ -1,4 +1,9 @@
 class DestinationsController < ApplicationController
+
+  def index
+    @destinations = Destination.all
+  end
+
   def create
     @destination = Destination.new(destination_params)
     @destination.country = Country.find(destination_params[:country_id])

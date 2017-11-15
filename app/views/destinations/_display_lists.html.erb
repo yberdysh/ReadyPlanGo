@@ -1,0 +1,11 @@
+<div>
+  <h3>Countries I've been to</h3>
+  <%= render partial: 'destinations/list', locals: {destinations: destinations.where(has_been: true)} %>
+</div>
+<div>
+  <h3>Countries I want to visit</h3>
+  <%= render partial: 'destinations/list', locals: {destinations: destinations.where(has_been: false, priority: false)} %>
+<div>
+  <h3>High Priority</h3>
+  <%= render partial: 'destinations/list', locals: {destinations: destinations.where(priority: true)} %>
+</div>

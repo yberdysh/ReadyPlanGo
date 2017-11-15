@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def destination_select
     @countries = Country.all
-    @destinations = Destination.where(user: current_user)
+    @destinations = current_user.destinations
   end
 
 end
