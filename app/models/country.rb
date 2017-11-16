@@ -1,5 +1,6 @@
 class Country < ApplicationRecord
   has_many :destinations
+  geocoded_by :name
 
   CONTINENTS = [
     "Africa",
