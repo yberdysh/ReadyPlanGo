@@ -3,7 +3,7 @@
   box-shadow: 0 1.5px 1px 0 rgba(255,255,255,0.45);
   //box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   transition: all 0.3s ease;
-  height: 70px;
+  height: 9vh;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -13,19 +13,42 @@
   background-color: #362217;
 }
 
+.navbar-user-wagon {
+  box-shadow: 0 1.5px 1px 0 rgba(255,255,255,0.45);
+  //box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  height: 9vh;
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Lato', 'sans-serif';
+  font-size: 20px;
+  background-size: cover !important;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) ), url('navbar_image.jpg');
+  //background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1) ), url('navbar_image_2.jpg');
+  //background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('navbar_image_3.jpg');
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 20px;
 }
 
 /* User Avatar */
-.navbar-wagon .avatar {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  border: solid rgba(255,255,255,0.8) 2px;
-}
+// .navbar-wagon .avatar .navbar-user-wagon .avatar{
+//   height: 60px;
+//   width: 60px;
+//   border-radius: 50%;
+//   border: solid rgba(255,255,255,0.8) 2px;
+// }
 
+.navbar-wagon-avatar {
+  height: 73px;
+  width: 73px;
+  border-radius: 50%;
+  border: solid rgba(152,152,152,0.6) 1px;
+}
 /* Right section */
 .navbar-wagon-right {
   display: flex;
@@ -41,14 +64,23 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,1);
   //color: #616668;
   font-size: 17px;
   font-family: 'Lato', 'sans-serif';
   &:hover{
     color: #FF2A6B !important;
   }
+
+  &:visited{
+  color: rgba(255,255,255,1);
+  //color: #616668;
+  font-size: 17px;
+  font-family: 'Lato', 'sans-serif';
+  text-decoration: none;
+  }
 }
+
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
@@ -67,10 +99,12 @@
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
+  font-size: 20px !important;
+  font-weight: 300 !important;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: #FF2A6B !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';

@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-user-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "globe_getter_logo" %>
@@ -10,30 +10,27 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Destinations", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Map", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Destinations", destination_select_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Map", map_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu",
+
+          <!-- # placeholder avatar -->
+          <%= image_tag 'Lucia.jpg', class: "navbar-wagon-avatar dropdown-toggle", id: "navbar-wagon-menu",
           "data-toggle" => "dropdown" %>
+
+          <!-- # commented out avatar which will have to be fixed-->
+<!--           <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu",
+          "data-toggle" => "dropdown" %> -->
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-              <% end %>
-            </li>
-            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
@@ -50,9 +47,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Map</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><%= link_to "Destinations", destination_select_path %></li>
+        <li><%= link_to "Map", map_path %></li>
+        <li><%= link_to "Profile", user_path(current_user) %></li>
       </ul>
     </div>
   </div>
