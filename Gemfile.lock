@@ -89,6 +89,7 @@ GEM
       railties (>= 3.2, < 5.2)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -163,6 +164,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.10.0)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -275,6 +278,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
@@ -283,6 +287,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  pundit
   rails (= 5.0.6)
   rails_admin (>= 1.0.0.rc)
   redis
