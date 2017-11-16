@@ -1,16 +1,19 @@
 .goal-set {
-  font-size: 20px;
-  font-weight: lighter;
+  font-size: 30px;
+  font-weight: 400;
   opacity: 0.9;
+  margin-bottom: 40px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   //color: rgb(255, 255, 255);
   //color: rgba(255,42,107, 0.8);
   input[type="number"] {
+    font-size: 30px;
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid white;
     margin-bottom: 2px;
     display: inline;
-    max-width: 40px;
+    max-width: 100px;
     text-align: center;
     color: rgba(255,42,107, 1);
     font-weight: 400;
@@ -21,20 +24,6 @@
   div {
     display: inline;
   }
-}
-
-.control-label  {
-  color: rgba(255,255,255,1);
-  font-size: 23px;
-  font-weight: 300;
-  font-family: 'Lato', 'sans-serif';
-}
-
-.boolean {
-  color: rgba(255,255,255,1);
-  font-size: 23px;
-  font-weight: 300;
-  font-family: 'Lato', 'sans-serif';
 }
 
 .banner form {
@@ -50,7 +39,7 @@
     background-color: rgba(255,42,107, 0.8);
     color: white;
     font-family: 'Maven Pro', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 380;
     min-height: 30px;
     min-width: 90px;
@@ -59,6 +48,8 @@
     justify-content: center;
     margin-bottom: 10px;
     margin-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
     &:hover{
       cursor: pointer;
       font-family: 'Maven Pro', sans-serif;
@@ -66,6 +57,20 @@
       color: white;
     }
   }
+}
+
+.control-label  {
+  color: rgba(255,255,255,1);
+  font-size: 23px;
+  font-weight: 300;
+  font-family: 'Lato', 'sans-serif';
+}
+
+.boolean {
+  color: rgba(255,255,255,1);
+  font-size: 23px;
+  font-weight: 300;
+  font-family: 'Lato', 'sans-serif';
 }
 
 .form-bottom-margin {

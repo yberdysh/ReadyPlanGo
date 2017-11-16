@@ -1,9 +1,28 @@
-.footer {
+.footer-container {
+  background-color: rgba(0,0,0,0.7);
   min-height: 20vh;
-  padding: 15px;
   display: flex;
-  align-items: center;
-  background-color: rgba(0,0,0,0.5);
-  font-family: 'Lato', 'sans-serif';
-  color: white;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.footer-item {
+  font-family: 'Maven Pro', 'sans-serif' !important;
+  align-self: auto;
+  align-items: flex-start;
+  margin: 4vh auto;
+  h1 {
+    font-size: 20px;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: rgba(255,255,255,1);
+  }
+  p {
+    font-size: 13px;
+    margin: 2px;
+    font-weight: lighter;
+    color: rgba(255,255,255,0.8);
+  }
 }
