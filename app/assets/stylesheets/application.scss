@@ -22,12 +22,19 @@
 body {
   background-color: #F4F4F4;
   //background-image: url('arches.png');
-  &.page-registrations-new, &.page-pages-home, &.page-sessions-new {
+  &.page-pages-home, &.page-registrations-new, &.page-registrations-edit, &.page-sessions-new,
+  &.page-unlocks-new, &.page-confirmations-new, &.page-passwords-new, &.page-passwords-edit {
     background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.45) 50%), url('https://images.unsplash.com/photo-1484544808355-8ec84e534d75?auto=format&fit=crop&w=1532&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
     background-size: cover;
     background-repeat: no-repeat;
     .navbar-wagon {
       background-color: transparent;
+    }
+    .navbar-user-wagon {
+      background: transparent !important;
+    }
+    .navbar-wagon {
+      background: transparent !important;
     }
   }
 }
