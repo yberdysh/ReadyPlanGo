@@ -8,7 +8,6 @@
 
 Country.destroy_all
 
-Thats the democratic republic of congo not the repu
 
 COUNTRIES = {
     "Africa" => [
