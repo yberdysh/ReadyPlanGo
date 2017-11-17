@@ -1,11 +1,4 @@
-<%= render partial: 'destinations/list', locals: {
-  destinations: destinations.where(has_been: true),
-  header_content: "Countries I've Been to"} %>
-
-<%= render partial: 'destinations/list', locals: {
-  destinations: destinations.where(has_been: false, priority: false),
-  header_content: "Countries I want to visit"} %>
-
-<%= render partial: 'destinations/list', locals: {
-  destinations: destinations.where(priority: true),
-  header_content: "High Priority"} %>
+<% Destination::DESTINATION_TYPES.reverse.each do |destination_type| %>
+  <h3> <%= destination_type[:title] %> </h3>
+  <%= render partial: 'destinations/card', collection: destinations.where(status: destination_type[:status]) %>
+<% end %>

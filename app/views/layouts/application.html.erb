@@ -9,7 +9,9 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link rel="icon" href="images/globe-getter-logo.png">
+    <%= favicon_link_tag 'favicon.ico' %>
+
+    <!-- <link rel="icon" href="images/globe-getter-logo.png"> -->
   </head>
   <body>
     <body class="page-<%= controller_name %>-<%= action_name %>">
@@ -20,8 +22,6 @@
         <%= render "shared/navbar_no_user" %>
       <% end %>
       <%= render 'shared/flashes' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
     <%= render "shared/footer"  %>

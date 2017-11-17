@@ -1,13 +1,13 @@
 <div class="display-lists">
+<!-- Loop over each continent from an array of continents -->
 <% Country::CONTINENTS.each_with_index do |continent| %>
+  <!-- Print continent name -->
   <h2><%= continent %></h2>
-  <% @countries.where(continent: continent).find_in_batches(batch_size: 30) do |thirty_countries| %>
+  <!-- For each continent, split countries into groups of 30 -->
+  <% countries.where(continent: continent).find_in_batches(batch_size: 30) do |thirty_countries| %>
       <div class="scrolling-wrapper">
         <%= render partial: 'countries/card', collection: thirty_countries %>
       </div>
   <% end %>
 <% end %>
 </div>
-
-
-

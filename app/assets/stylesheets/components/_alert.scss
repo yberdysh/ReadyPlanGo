@@ -3,13 +3,21 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  margin-top: 28px;
   text-align: center;
-  color: white;
+  background-color: rgba(255,255,255,0.3);
+  border: 0;
+  position: absolute;
+  top: 72px;
+  width: 100%;
 }
 .alert-info {
-  background: $green;
+  color: #FF2A6B;
+  font-family: 'Lato', 'sans-serif' !important;
+  font-size: 19px;
 }
 .alert-warning {
-  background: $red;
+  color: #cc0000;
+  font-family: 'Lato', 'sans-serif' !important;
+  font-size: 19px;
 }
