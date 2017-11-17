@@ -1,2 +1,8 @@
 <h1><%= @country.name %></h1>
 <p>Continent: <%= @country.continent %></p>
+
+<% current_user.destinations.each do |destination| %>
+  <% if destination.country_id == @country_id %>
+    <%
+  <% end %>
+<% end %>
