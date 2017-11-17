@@ -11,17 +11,18 @@
           <i class="fa fa-minus-circle" aria-hidden="true"></i>
         <% end %>
         <!-- Unless they've visited already, show a check -->
+        <% unless card.has_been || card.priority %>
+          <%= link_to destination_path(card, destination: {country_id: card.id, priority: true}), method: :patch do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+
         <% unless card.has_been %>
           <%= link_to destination_path(card, destination: {country_id: card.id, has_been: true}), method: :patch do %>
             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <% end %>
         <% end %>
         <!-- For non-prority cards that they haven't visited -->
-        <% unless card.has_been || card.priority %>
-          <%= link_to destination_path(card, destination: {country_id: card.id, priority: true}), method: :patch do %>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
       </div>
     </div>
 </div>
