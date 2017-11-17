@@ -59,6 +59,16 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  // &:hover {
+  //   padding-bottom: 5px;
+  //   color: #FF2A6B !important;
+  //   transition: 0.3s ease-out;
+  // }
+}
+
+.navbar-wagon-item-user {
+  cursor: pointer;
+  padding: 0 20px;
   &:hover {
     padding-bottom: 5px;
     color: #FF2A6B !important;
