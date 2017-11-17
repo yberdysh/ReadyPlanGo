@@ -44,10 +44,10 @@
 // }
 
 .navbar-wagon-avatar {
-  height: 73px;
-  width: 73px;
+  height: 8vh;
+  width: 8vh;
   border-radius: 50%;
-  border: solid rgba(152,152,152,0.6) 1px;
+  //border: solid rgba(152,152,152,0.6) 1px;
 }
 /* Right section */
 .navbar-wagon-right {
@@ -60,6 +60,11 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  &:hover {
+    padding-bottom: 5px;
+    color: #FF2A6B !important;
+    transition: 0.3s ease-out;
+  }
 }
 
 /* Navbar link */
@@ -67,16 +72,12 @@
   color: rgba(255,255,255,1);
   //color: #616668;
   font-size: 17px;
-  font-family: 'Lato', 'sans-serif';
-  &:hover{
-    color: #FF2A6B !important;
-  }
+  font-family: 'Maven Pro', 'sans-serif';
 
   &:visited{
   color: rgba(255,255,255,1);
   //color: #616668;
   font-size: 17px;
-  font-family: 'Lato', 'sans-serif';
   text-decoration: none;
   }
 }
