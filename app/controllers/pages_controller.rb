@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   def home
     if current_user.nil?
       @user = User.new
+    elsif current_user.destinations.empty?
+      redirect_to destination_select_path
+    else
+      redirect_to user_path(current_user)
     end
   end
 
