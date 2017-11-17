@@ -9,7 +9,9 @@
           I want to visit <%= f.input :number_countries, input_html: {value: params[:countries]}, label: false %> countries in
           <%= f.input :years, input_html: {value: params[:years]}, label: false %> years.
         </div>
-          <%= f.input :email, required: true, autofocus: true, placeholder: "placeholder text" %>
+          <%= f.input :first_name, required: true, autofocus: true %>
+          <%= f.input :last_name, required: true, autofocus: true %>
+          <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
           <%= f.button :submit, "Sign up" %>

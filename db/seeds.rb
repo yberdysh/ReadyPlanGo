@@ -8,8 +8,6 @@
 
 Country.destroy_all
 
-# Thats the democratic republic of congo not the repu
-
 COUNTRIES = {
     "Africa" => [
       {name: "Algeria", currency_name: "Algerian Dinar", capital: "Alger", airport_code: "ALG"},
