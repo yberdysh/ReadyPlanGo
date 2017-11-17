@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     if current_user != @user
       redirect_to root_path
     end
+    @destinations = current_user.destinations
   end
 
   def edit
