@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 
-  authenticated :user do
-    root to: 'pages#destination_select'
-  end
+  # authenticated :user do
+  #   root to: 'users#show#id'
+  # end
 
   root to: 'pages#home'
 
