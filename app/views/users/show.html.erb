@@ -8,19 +8,19 @@
   <% numerator = @user.number_countries.to_f %>
   <% result = numerator/denomenator %>
   <h3> If you visit <%= result.round %> countries every year, you will complete your goal! </h3>
+  <h3> Here are your priority countries: </h3>
+  <div class="scrolling-wrapper">
+    <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
+  </div>
+
   <h3> Here is a list of places you would like to visit. </h3>
-  <ul>
-    <% @user.destinations.each do |country| %>
-      <% if country.has_been == false %>
-        <li> <%= country.country.name %> </li>
-      <% end %>
-    <% end %>
-  </ul>
+  <div class="scrolling-wrapper">
+    <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
+  </div>
+
   <h3> And here is a list of places you have been!! </h3>
-     <% @user.destinations.each do |country| %>
-      <% if country.has_been == true %>
-        <li> <%= country.country.name %> </li>
-      <% end %>
-    <% end %>
+  <div class="scrolling-wrapper">
+    <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
+  </div>
 
 </div>
