@@ -9,12 +9,18 @@
   <% result = numerator/denomenator %>
   <h3> If you visit <%= result.round %> countries every year, you will complete your goal! </h3>
   <h3> Here are your priority countries: </h3>
-  <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
+  <div class="scrolling-wrapper">
+    <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
+  </div>
 
   <h3> Here is a list of places you would like to visit. </h3>
+  <div class="scrolling-wrapper">
     <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
+  </div>
 
   <h3> And here is a list of places you have been!! </h3>
-  <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
+  <div class="scrolling-wrapper">
+    <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
+  </div>
 
 </div>
