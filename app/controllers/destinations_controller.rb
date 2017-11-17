@@ -7,7 +7,8 @@ class DestinationsController < ApplicationController
   def create
     @destination = Destination.new
     @destination.country = Country.find(destination_params[:country_id])
-    @destination.status = calc_status(destination_params[:priority], destination_params[:has_been])
+    @destination.status = destination_params[:status]
+
     @destination.user_id = current_user.id
     authorize @destination
     @destination.save!
@@ -15,14 +16,8 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find(params[:id])
+    @destination.status = destination_params[:status]
 
-    has_been = destination_params[:has_been]
-    has_been ||= @destination.has_been
-
-    priority = destination_params[:priority]
-    priority ||= @destination.priority
-
-    @destination.status = calc_status(priority, has_been)
     authorize @destination
     @destination.save!
     redirect_to destination_select_path
@@ -38,17 +33,30 @@ class DestinationsController < ApplicationController
   private
 
   def destination_params
-    # If priority is passed as a parameter, update it with the new value
-    unless params[:destination][:priority].nil?
-      params[:destination][:priority] = params[:destination][:priority] == "true" ? true : false
-    end
+    if params[:destination][:status].nil?
+      unless params[:destination][:has_been].nil?
+        has_been = params[:destination][:has_been]
+      end
+      has_been ||= @destination.has_been
 
-    # If has_been is being passed as a parameter, update it with the new value
-    unless params[:destination][:has_been].nil?
-      params[:destination][:has_been] = params[:destination][:has_been] == "true" ? true : false
-    end
+      unless params[:destination][:priority].nil?
+       priority = params[:destination][:priority]
+      end
+      priority ||= @destination.priority
 
-    params.require(:destination).permit(:country_id, :priority, :has_been)
+      params[:destination][:status] = calc_status(priority, has_been)
+    end
+    # # If priority is passed as a parameter, update it with the new value
+    # unless params[:destination][:priority].nil?
+    #   params[:destination][:priority] = params[:destination][:priority] == "true" ? true : false
+    # end
+
+    # # If has_been is being passed as a parameter, update it with the new value
+    # unless params[:destination][:has_been].nil?
+    #   params[:destination][:has_been] = params[:destination][:has_been] == "true" ? true : false
+    # end
+
+    params.require(:destination).permit(:country_id, :priority, :has_been, :status)
   end
 
   def calc_status(priority, has_been)
