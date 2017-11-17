@@ -3,13 +3,13 @@
     <div class="card-description">
       <h2>   <%= link_to card.name, country_path(card) %></h2>
       <div class="icons">
-        <%= link_to destinations_path(destination: {country_id: card.id, priority: true, has_been: false}), method: :post do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 3}), method: :post do %>
           <i class="fa fa-star-o" aria-hidden="true"></i>
         <% end %>
-        <%= link_to destinations_path(destination: {country_id: card.id, priority: false, has_been: false}), method: :post do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 2}), method: :post do %>
           <i class="fa fa-plus-circle" aria-hidden="true"></i>
         <% end %>
-        <%= link_to destinations_path(destination: {country_id: card.id, priority: false, has_been: true}), method: :post do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post do %>
           <i class="fa fa-check-circle-o" aria-hidden="true"></i>
         <% end %>
 
