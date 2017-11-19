@@ -4,11 +4,11 @@ class UserPolicy < ApplicationPolicy
       scope
     end
   end
-   def edit
+   def edit?
     true
-  end
+   end
 
-  def update
+  def update?
     true
   end
 end
