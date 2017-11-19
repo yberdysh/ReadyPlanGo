@@ -1,6 +1,14 @@
+
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+gem "coffee-rails"
+gem "gmaps4rails"
 gem 'pundit'
 gem 'devise'
 gem 'omniauth-facebook'

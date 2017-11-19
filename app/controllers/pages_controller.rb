@@ -14,5 +14,12 @@ class PagesController < ApplicationController
     @countries = Country.all
     @destinations = current_user.destinations
   end
+  def map
+    @countries = Country.where.not(latitude: nil, longitude: nil)
 
+    @hash = Gmaps4rails.build_markers(@countries) do |country, marker|
+      marker.lat country.latitude
+      marker.lng country.longitude
+    end
+  end
 end
