@@ -5,14 +5,18 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    @destination = Destination.new
-    authorize @destination
-    @destination.country = Country.find(destination_params[:country_id])
-    @destination.status = destination_params[:status]
-    @destination.user_id = current_user.id
-    authorize @destination
-    @destination.save!
-    redirect_to destination_select_path
+      @destination = Destination.new
+      @destination.country = Country.find(destination_params[:country_id])
+      @destination.status = destination_params[:status]
+      @destination.user_id = current_user.id
+      authorize @destination
+      check_existence
+      if @destination_check.empty?
+        @destination.save!
+        redirect_to destination_select_path
+      else
+        redirect_to destination_select_path
+      end
   end
 
   def update
@@ -34,5 +38,8 @@ class DestinationsController < ApplicationController
   end
   def destination_params
     params.require(:destination).permit(:country_id, :status)
+  end
+  def check_existence
+    @destination_check = Destination.where(country_id: @destination.country_id)
   end
 end

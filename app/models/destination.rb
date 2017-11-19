@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
   belongs_to :country
-
+  validates :country_id, uniqueness: true
   DESTINATION_TYPES = [
     {
       title: "Countries I've Been to",
@@ -15,13 +15,4 @@ class Destination < ApplicationRecord
       status: 3
     }
   ]
-
-  # def has_been
-  #   self.status == 1 ? true : false
-  # end
-
-  # def priority
-  #   self.status == 3 ? true : false
-  # end
-
 end
