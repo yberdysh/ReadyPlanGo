@@ -6,5 +6,10 @@ class CountriesController < ApplicationController
       @country = Country.find_by_name(params[:id])
     end
     authorize @country
+
+    @hash = Gmaps4rails.build_markers(@country) do |country, marker|
+      marker.lat country.latitude
+      marker.lng country.longitude
+    end
   end
 end
