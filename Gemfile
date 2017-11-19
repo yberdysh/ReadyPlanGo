@@ -10,6 +10,8 @@ end
 gem "coffee-rails"
 gem "gmaps4rails"
 gem 'pundit'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
