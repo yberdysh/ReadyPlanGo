@@ -13,21 +13,12 @@
         <!-- Unless they've visited already, show a check -->
         <% case %>
         <% when card.status == 3 %>
-          <%= link_to destination_path(card, destination: {country_id: card.id, status: 2}), method: :patch do %>
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          <!-- <i class="fa fa-star-o" aria-hidden="true"></i> -->
-          <% end %>
+           <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post do %>
+             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+           <% end %>
         <% when card.status == 2 %>
-        <%= link_to destination_path(card, destination: {country_id: card.id, status: 3}), method: :patch do %>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-           <% end %>
-        <% when card.status == 1 %>
-        <%= link_to destination_path(card, destination: {country_id: card.id, status: 3}), method: :patch do %>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-           <% end %>
-        <%= link_to destination_path(card, destination: {country_id: card.id, status: 2}), method: :patch do %>
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          <!-- <i class="fa fa-star-o" aria-hidden="true"></i> -->
+          <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post do %>
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <% end %>
         <% end %>
 
