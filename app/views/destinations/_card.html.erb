@@ -14,7 +14,7 @@
         <% case %>
         <% when card.status == 3 %>
           <%= link_to destination_path(card, destination: {country_id: card.id, status: 2}), method: :patch do %>
-          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
           <!-- <i class="fa fa-star-o" aria-hidden="true"></i> -->
           <% end %>
         <% when card.status == 2 %>
@@ -26,7 +26,7 @@
           <i class="fa fa-star-o" aria-hidden="true"></i>
            <% end %>
         <%= link_to destination_path(card, destination: {country_id: card.id, status: 2}), method: :patch do %>
-          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
           <!-- <i class="fa fa-star-o" aria-hidden="true"></i> -->
           <% end %>
         <% end %>
