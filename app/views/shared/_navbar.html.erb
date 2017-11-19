@@ -10,11 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <!-- <%= link_to '<i class="fa fa-map-marker" aria-hidden="true"></i>
-Destinations'.html_safe, destination_select_path, class: "navbar-wagon-item-user navbar-wagon-link" %> -->
-      <%= link_to "Destinations", destination_select_path, class: "navbar-wagon-item-user navbar-wagon-link" %>
-      <%= link_to "Map", map_path, class: "navbar-wagon-item-user navbar-wagon-link" %>
-      <%= link_to "Dashboard", user_path(current_user), class: "navbar-wagon-item-user navbar-wagon-link" %>
+      <%= link_to destination_select_path, class: "navbar-wagon-item-user navbar-wagon-link" do %><i class="fa fa-globe"></i> Destination<% end %>
+      <%= link_to map_path, class: "navbar-wagon-item-user navbar-wagon-link" do %><i class="fa fa-map-marker"></i> Map<% end %>
+      <%= link_to user_path(current_user), class: "navbar-wagon-item-user navbar-wagon-link" do %><i class="fa fa-tachometer"></i> Dashboard<% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
