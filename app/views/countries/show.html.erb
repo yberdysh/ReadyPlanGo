@@ -30,23 +30,25 @@
     <p><%= @country.travel_languages %></p>
   </div>
 
-  <div class="dashboard-item-note notes-border">
-    <div id="destinations">
-      <% if @destination.empty? %>
-        <% %>
-      <%elsif @destination.first.notes.nil? %>
-        <p>Feel free to add a note for  <%= @country.name %>.<p>
+  <div id="destinations">
+    <% if @destination.empty? %>
+      <% %>
+    <%elsif @destination.first.notes.nil? %>
+      <div class="dashboard-item-note notes-border">
+        <p>Feel free to add a note for  <%= @country.name %>.</p>
         <%= simple_form_for([@country, @destination.first], method: :patch) do |f| %>
           <%= f.input :notes, label: false %>
           <%= f.input :status, as: :hidden %>
           <%= f.submit class: "btn btn-warning" %>
-      <% end %>
-      <% else %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="dashboard-item-note notes-border">
         <% @destination.each do |destination| %>
           <%= render 'destinations/show', destination: destination %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 
   <% if @country.reviews.empty? %>
