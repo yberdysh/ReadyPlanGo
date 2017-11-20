@@ -19,8 +19,9 @@ class DestinationsController < ApplicationController
       end
   end
 
+
   def update
-    @destination.update!(destination_params)
+    @destination.update(destination_params)
     redirect_to destination_select_path
   end
 
