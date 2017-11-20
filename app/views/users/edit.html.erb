@@ -2,7 +2,7 @@
   <%= simple_form_for [@user] do |f| %>
     <%= f.error_notification %>
     <div class="goal-set">
-      I want to visit <%= f.input :number_countries, input_html: {value: params[:countries]}, label: false %> countries in <%= f.input :years, input_html: {value: params[:years]}, label: false %> years.
+      I want to visit <%= f.input :number_countries, input_html: {value: params[:countries]}, label: false %> countries over <%= f.input :years, input_html: {value: params[:years]}, label: false %> years.
     </div>
     <div class="text-center" style="margin-bottom: 5vh">
       <% avatar_url = current_user.facebook_picture_url || current_user.photo.url %>
