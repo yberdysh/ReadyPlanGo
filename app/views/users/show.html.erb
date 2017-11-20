@@ -1,6 +1,7 @@
 <body style="background: url('<%= image_path "arches.png" %>');">
   <div class="dashboard-container">
     <div class="dashboard-item">
+      <%= image_tag current_user.photo, height: 300, width: 400, crop: :fill %>
       <h1> Hello <%= @user.first_name %> </h1>
     </div>
     <div class="dashboard-item">

@@ -2,6 +2,7 @@
 <p>Continent: <%= @country.continent %></p>
 <p>Capital: <%= @country.capital %></p>
 <p>Currency: <%= @country.currency_name %></p>
+<p>Languages for Travel: <%= @country.travel_languages %> </p>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
@@ -15,7 +16,7 @@
       if (markers.length == 0) {
         handler.getMap().setZoom(2);
       } else if (markers.length == 1) {
-        handler.getMap().setZoom(6);
+        handler.getMap().setZoom(4);
       }
     });
   <% end %>
