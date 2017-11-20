@@ -1,0 +1,13 @@
+
+      <h2>   <%= link_to @countries.name, countries_path(@countries) %></h2>
+      <div class="icons">
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 3}), method: :post do %>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 2}), method: :post do %>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post do %>
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        <% end %>
+      </div>

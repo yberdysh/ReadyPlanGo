@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   resources :destinations, only: [:create, :destroy, :update]
-  resources :countries, only: [:show]
+  resources :countries, only: [:show, :index]
 
   get 'destination_select', to: 'pages#destination_select'
   get 'map', to: 'pages#map'

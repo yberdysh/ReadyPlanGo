@@ -4,6 +4,16 @@
 <p>Currency: <%= @country.currency_name %></p>
 <p>Languages for Travel: <%= @country.travel_languages %> </p>
 
+
+<div id="destinations">
+  <% if @destination.nil? %>
+  <% %>
+  <%elsif @destination.notes.nil? %>
+    Feel free to add a note for  <%= @country.name %>
+  <% else %>
+    <%= render 'destinations/show', notes: notes %>
+  <% end %>
+</div>
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>

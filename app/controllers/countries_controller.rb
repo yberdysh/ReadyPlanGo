@@ -1,4 +1,7 @@
 class CountriesController < ApplicationController
+  def index
+    @countries = Country.where("name ILIKE ?", "%#{params[:query]}%")
+  end
   def show
     if  (params[:id] =~ /\A[-+]?[0-9]+\z/)
       @country = Country.find(params[:id])
@@ -11,5 +14,7 @@ class CountriesController < ApplicationController
       marker.lat country.latitude
       marker.lng country.longitude
     end
+    destination_n = @country.destinations.where(user_id = current_user.id)
+    @destination = destination_n.first
   end
 end
