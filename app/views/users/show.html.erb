@@ -47,32 +47,32 @@
       <h3> If you visit about <%= result.round %> countries every year, you will complete your goal! </h3>
     </div>
 
-      <% if !@destinations.where(status: 3).empty? %>
-        <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-          <h3> Here are your priority countries: </h3>
-          <div class="scrolling-wrapper">
-          <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
-          </div>
+    <% if !@destinations.where(status: 3).empty? %>
+      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
+        <h3> Here are your priority countries: </h3>
+        <div class="scrolling-wrapper">
+        <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
-      <% if !@destinations.where(status: 2).empty? %>
-        <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-          <h3> Here is a list of places you would like to visit.</h3>
-          <div class="scrolling-wrapper">
-            <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
-          </div>
+    <% if !@destinations.where(status: 2).empty? %>
+      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
+        <h3> Here is a list of places you would like to visit.</h3>
+        <div class="scrolling-wrapper">
+          <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
-      <% if !@destinations.where(status: 1).empty? %>
-        <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-          <h3> And here is a list of places you have been!</h3>
-          <div class="scrolling-wrapper">
-            <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
-          </div>
+    <% if !@destinations.where(status: 1).empty? %>
+      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
+        <h3> And here is a list of places you have been!</h3>
+        <div class="scrolling-wrapper">
+          <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 <!--     <div class="dashboard-item">
       <div class="pie">
         <div class="slice-right"></div>

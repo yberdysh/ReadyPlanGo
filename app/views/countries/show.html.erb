@@ -1,70 +1,90 @@
-<h1><%= @country.name %></h1>
+<div class="text-center user_profile">
+  <h1><%= @country.name %></h1>
 
-<% if @country.average_rating > 0 %>
-  <p>Average Rating: <%= @country.average_rating %></p>
-<% else %>
-  <p></p>
-<% end %>
+<div class="dashboard-container">
 
-<p>Continent: <%= @country.continent %></p>
-<p>Capital: <%= @country.capital %></p>
-<p>Currency: <%= @country.currency_name %></p>
-<p>Languages for Travel: <%= @country.travel_languages %> </p>
+  <% if @country.average_rating > 0 %>
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+      <h3>Average Rating</h3>
+      <p><%= @country.average_rating %></p>
+    </div>
+  <% end %>
 
+  <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1487581424120-18f3611a63e6?auto=format&fit=crop&w=1026&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Continent</h3>
+    <p><%= @country.continent %></p>
+  </div>
 
-<div id="destinations">
-  <% if @destination.nil? %>
-  <% %>
-  <%elsif @destination.first.notes.nil? %>
-    Feel free to add a note for  <%= @country.name %>
-    <%= simple_form_for([@country, @destination.first], method: :patch) do |f| %>
-    <%= f.input :notes, label: false %>
-    <%= f.input :status, as: :hidden %>
-    <%= f.submit class: "btn btn-primary" %>
-<% end %>
+  <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1490430657723-4d607c1503fc?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Capital</h3>
+    <p><%= @country.capital %></p>
+  </div>
 
+  <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1443110189928-4448af4a2bc5?auto=format&fit=crop&w=897&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Currency</h3>
+    <p><%= @country.currency_name %></p>
+  </div>
+
+  <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Languages for Travel</h3>
+    <p><%= @country.travel_languages %></p>
+  </div>
+
+  <div class="dashboard-item-note notes-border">
+    <div id="destinations">
+      <% if @destination.empty? %>
+        <% %>
+      <%elsif @destination.first.notes.nil? %>
+        <p>Feel free to add a note for  <%= @country.name %>.<p>
+        <%= simple_form_for([@country, @destination.first], method: :patch) do |f| %>
+          <%= f.input :notes, label: false %>
+          <%= f.input :status, as: :hidden %>
+          <%= f.submit class: "btn btn-warning" %>
+      <% end %>
+      <% else %>
+        <% @destination.each do |destination| %>
+          <%= render 'destinations/show', destination: destination %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if @country.reviews.empty? %>
+    <div class="dashboard-item-note notes-border">
+      <p>No reviews yet for this country. Be the first to leave a review.</p>
+      <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
+    </div>
   <% else %>
-    <% @destination.each do |destination| %>
+    <div class="dashboard-item-note notes-border">
+      <% @country.reviews.each do |review| %>
+        <p class="review"><%= review.content %></p>
+        <p class="rating"></p>
+        <% review.rating.times do %>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        <% end %>
+          <% if current_user.reviews.include? review %>
+            <p><%= link_to "Edit", edit_country_review_path(@country, review) %></p>
+            <p><%= link_to "Delete", country_review_path(@country, review), method: :delete, data: { confirm: "Are you sure?"} %></p>
+            <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
+          <% end %>
+      <% end %>
+    </div>
+  <% end %>
 
-    <%= render 'destinations/show', destination: destination %>
+  <div id="map" class="country-map" style="width: 100%; height: 600px;"></div>
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(4);
+        }
+      });
     <% end %>
   <% end %>
 </div>
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(4);
-      }
-    });
-  <% end %>
-<% end %>
-
-<% if @country.reviews.empty? %>
-  <p>No reviews yet for this country. Be the first to leave a review.</p>
-<% else %>
-  <p></p>
-<% end %>
-
-
-<% @country.reviews.each do |review| %>
-  <p class="review"><%= review.content %></p>
-  <p class="rating">
-  <% review.rating.times do %>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-  <% end %>
-    <% if current_user.reviews.include? review %>
-      <p><%= link_to "Edit", edit_country_review_path(@country, review) %></p>
-      <p><%= link_to "Delete", country_review_path(@country, review), method: :delete, data: { confirm: "Are you sure?"} %></p>
-    <% end %>
-<% end %>
-
-<p> <%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
