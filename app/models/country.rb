@@ -2,6 +2,7 @@ require 'json'
 
 class Country < ApplicationRecord
   has_many :destinations
+  has_many :languages
   geocoded_by :name
   after_validation :geocode, if: :name_changed?
   has_many :reviews, dependent: :destroy

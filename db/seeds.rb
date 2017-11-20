@@ -245,94 +245,107 @@ require 'json'
 #     end
 #   end
 
-attributes = [
-  {
-    attribute_name: 'abbreviation',
-    file: 'db/country-json/country-by-abbreviation.json',
-    json_name: 'abbreviation'
-  },
-  {
-    attribute_name: 'avg_male_height',
-    file: 'db/country-json/country-by-avg-male-height.json',
-    json_name: 'height'
-  },
-  {
-    attribute_name: 'calling_code',
-    file: 'db/country-json/country-by-calling-code.json',
-    json_name: 'calling_code'
-  },
-  {
-    attribute_name: 'capital_city',
-    file: 'db/country-json/country-by-capital-city.json',
-    json_name: 'city'
-  },
-  {
-    attribute_name: 'currency_code',
-    file: 'db/country-json/country-by-currency-code.json',
-    json_name: 'currency_code'
-  },
-  {
-    attribute_name: 'elevation',
-    file: 'db/country-json/country-by-elevation.json',
-    json_name: 'elevation'
-  },
-  {
-    attribute_name: 'flag',
-    file: 'db/country-json/country-by-flag.json',
-    json_name: 'flag_base64'
-  },
-  {
-    attribute_name: 'government_type',
-    file: 'db/country-json/country-by-government-type.json',
-    json_name: 'government'
-  },
-  {
-    attribute_name: 'independence_date',
-    file: 'db/country-json/country-by-independence-date.json',
-    json_name: 'independence'
-  },
-  {
-    attribute_name: 'iso',
-    file: 'db/country-json/country-by-iso-numeric.json',
-    json_name: 'iso'
-  },
-  {
-    attribute_name: 'landlocked',
-    file: 'db/country-json/country-by-landlocked.json',
-    json_name: 'landlocked'
-  },
-  {
-    attribute_name: 'life_expectancy',
-    file: 'db/country-json/country-by-life-expectancy.json',
-    json_name: 'expectancy'
-  },
-  {
-    attribute_name: 'national_dish',
-    file: 'db/country-json/country-by-national-dish.json',
-    json_name: 'dish'
-  },
-  {
-    attribute_name: 'population_density',
-    file: 'db/country-json/country-by-population-density.json',
-    json_name: 'density'
-  },
-  {
-    attribute_name: 'population',
-    file: 'db/country-json/country-by-population.json',
-    json_name: 'population'
-  },
-  {
-    attribute_name: 'avg_temperature_in_celsius',
-    file: 'db/country-json/country-by-yearly-average-temperature.json',
-    json_name: 'temperature'
-  },
-  ]
+# attributes = [
+#   {
+#     attribute_name: 'abbreviation',
+#     file: 'db/country-json/country-by-abbreviation.json',
+#     json_name: 'abbreviation'
+#   },
+#   {
+#     attribute_name: 'avg_male_height',
+#     file: 'db/country-json/country-by-avg-male-height.json',
+#     json_name: 'height'
+#   },
+#   {
+#     attribute_name: 'calling_code',
+#     file: 'db/country-json/country-by-calling-code.json',
+#     json_name: 'calling_code'
+#   },
+#   {
+#     attribute_name: 'capital_city',
+#     file: 'db/country-json/country-by-capital-city.json',
+#     json_name: 'city'
+#   },
+#   {
+#     attribute_name: 'currency_code',
+#     file: 'db/country-json/country-by-currency-code.json',
+#     json_name: 'currency_code'
+#   },
+#   {
+#     attribute_name: 'elevation',
+#     file: 'db/country-json/country-by-elevation.json',
+#     json_name: 'elevation'
+#   },
+#   {
+#     attribute_name: 'flag',
+#     file: 'db/country-json/country-by-flag.json',
+#     json_name: 'flag_base64'
+#   },
+#   {
+#     attribute_name: 'government_type',
+#     file: 'db/country-json/country-by-government-type.json',
+#     json_name: 'government'
+#   },
+#   {
+#     attribute_name: 'independence_date',
+#     file: 'db/country-json/country-by-independence-date.json',
+#     json_name: 'independence'
+#   },
+#   {
+#     attribute_name: 'iso',
+#     file: 'db/country-json/country-by-iso-numeric.json',
+#     json_name: 'iso'
+#   },
+#   {
+#     attribute_name: 'landlocked',
+#     file: 'db/country-json/country-by-landlocked.json',
+#     json_name: 'landlocked'
+#   },
+#   {
+#     attribute_name: 'life_expectancy',
+#     file: 'db/country-json/country-by-life-expectancy.json',
+#     json_name: 'expectancy'
+#   },
+#   {
+#     attribute_name: 'national_dish',
+#     file: 'db/country-json/country-by-national-dish.json',
+#     json_name: 'dish'
+#   },
+#   {
+#     attribute_name: 'population_density',
+#     file: 'db/country-json/country-by-population-density.json',
+#     json_name: 'density'
+#   },
+#   {
+#     attribute_name: 'population',
+#     file: 'db/country-json/country-by-population.json',
+#     json_name: 'population'
+#   },
+#   {
+#     attribute_name: 'avg_temperature_in_celsius',
+#     file: 'db/country-json/country-by-yearly-average-temperature.json',
+#     json_name: 'temperature'
+#   },
+#   ]
 
-  attributes.each do |attribute|
-    puts "Setting #{attribute[:attribute_name]}"
-    Country.set_attribute_from_json(attribute[:file], attribute[:attribute_name], attribute[:json_name])
-    count = Country.where.not(attribute[:attribute_name].to_sym => nil).count
-    puts "Set #{attribute[:attribute_name]} for #{count} countries."
+#   attributes.each do |attribute|
+#     puts "Setting #{attribute[:attribute_name]}"
+#     Country.set_attribute_from_json(attribute[:file], attribute[:attribute_name], attribute[:json_name])
+#     count = Country.where.not(attribute[:attribute_name].to_sym => nil).count
+#     puts "Set #{attribute[:attribute_name]} for #{count} countries."
+#   end
+
+Language.destroy_all
+
+language_file = File.read('db/country-json/country-by-languages.json')
+language_json = JSON.parse(language_file, opts = {symbolize_names: true})
+language_json.each do |item|
+  language = Language.new(name: item[:language])
+  language.country = Country.find_by(name: item[:country])
+  unless language.country.nil?
+    language.save!
   end
+end
+
 
 
