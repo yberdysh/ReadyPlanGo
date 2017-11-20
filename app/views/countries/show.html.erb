@@ -13,7 +13,7 @@
 
 
 <div id="destinations">
-  <% if @destination.nil? %>
+  <% if @destination.empty? %>
   <% %>
   <%elsif @destination.first.notes.nil? %>
     Feel free to add a note for  <%= @country.name %>
