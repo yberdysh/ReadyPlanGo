@@ -20,6 +20,9 @@
           <%= link_to destination_path(card, destination: {country_id: card.id, status: 1}), method: :patch do %>
             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <% end %>
+          <%= link_to destination_path(card, destination: {country_id: card.id, status: 3}), method: :patch do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
         <% end %>
 
         <!-- For non-prority cards that they haven't visited -->

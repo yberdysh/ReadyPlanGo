@@ -16,7 +16,6 @@ class PagesController < ApplicationController
   end
   def map
     @destinations = current_user.destinations
-
     @hash = Gmaps4rails.build_markers(@destinations) do |destination, marker|
       if destination.status == 1
        marker.picture({
