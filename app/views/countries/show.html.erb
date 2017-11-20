@@ -1,4 +1,11 @@
 <h1><%= @country.name %></h1>
+
+<% if @country.average_rating > 0 %>
+  <p>Average Rating: <%= @country.average_rating %></p>
+<% else %>
+  <p></p>
+<% end %>
+
 <p>Continent: <%= @country.continent %></p>
 <p>Capital: <%= @country.capital %></p>
 <p>Currency: <%= @country.currency_name %></p>
@@ -21,3 +28,24 @@
     });
   <% end %>
 <% end %>
+
+<% if @country.reviews.empty? %>
+  <p>No reviews yet for this country. Be the first to leave a review.</p>
+<% else %>
+  <p></p>
+<% end %>
+
+
+<% @country.reviews.each do |review| %>
+  <p class="review"><%= review.content %></p>
+  <p class="rating">
+  <% review.rating.times do %>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% end %>
+    <% if current_user.reviews.include? review %>
+      <p><%= link_to "Edit", edit_country_review_path(@country, review) %></p>
+      <p><%= link_to "Delete", country_review_path(@country, review), method: :delete, data: { confirm: "Are you sure?"} %></p>
+    <% end %>
+<% end %>
+
+<p> <%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>

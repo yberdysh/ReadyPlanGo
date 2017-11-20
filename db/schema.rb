@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119191628) do
+ActiveRecord::Schema.define(version: 20171120174622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20171119191628) do
     t.integer  "status",     default: 2
     t.index ["country_id"], name: "index_destinations_on_country_id", using: :btree
     t.index ["user_id"], name: "index_destinations_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "country_id"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["country_id"], name: "index_reviews_on_country_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,4 +82,6 @@ ActiveRecord::Schema.define(version: 20171119191628) do
 
   add_foreign_key "destinations", "countries"
   add_foreign_key "destinations", "users"
+  add_foreign_key "reviews", "countries"
+  add_foreign_key "reviews", "users"
 end
