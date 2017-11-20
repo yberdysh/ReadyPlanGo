@@ -11,6 +11,25 @@
 <p>Currency: <%= @country.currency_name %></p>
 <p>Languages for Travel: <%= @country.travel_languages %> </p>
 
+
+<div id="destinations">
+  <% if @destination.nil? %>
+  <% %>
+  <%elsif @destination.first.notes.nil? %>
+    Feel free to add a note for  <%= @country.name %>
+    <%= simple_form_for([@country, @destination.first], method: :patch) do |f| %>
+    <%= f.input :notes, label: false %>
+    <%= f.input :status, as: :hidden %>
+    <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
+  <% else %>
+    <% @destination.each do |destination| %>
+
+    <%= render 'destinations/show', destination: destination %>
+    <% end %>
+  <% end %>
+</div>
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
@@ -42,6 +61,10 @@
   <% review.rating.times do %>
     <i class="fa fa-star-o" aria-hidden="true"></i>
   <% end %>
+    <% if current_user.reviews.include? review %>
+      <p><%= link_to "Edit", edit_country_review_path(@country, review) %></p>
+      <p><%= link_to "Delete", country_review_path(@country, review), method: :delete, data: { confirm: "Are you sure?"} %></p>
+    <% end %>
 <% end %>
 
 <p> <%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
