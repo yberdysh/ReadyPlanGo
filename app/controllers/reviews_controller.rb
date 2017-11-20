@@ -1,12 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :set_country
+  # before_action :skip_pundit?
 
   def new
-    @review = Review.new
+   @review = Review.new
+   authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @review.country = @country
     if @review.save
       redirect_to country_path(@country)
