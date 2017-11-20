@@ -37,7 +37,7 @@
     <% else %>
       <% numerator = @user.number_countries.to_f %>
     <% end %>
-    <% result = denomenator == 0 ? 0 : numerator/denomator %>
+    <% result = denomenator == 0 ? 0 : numerator/denomenator %>
 
     <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('/assets/dashboard_travel_journal-3fab72c0cc96efe62475fff4698804acbe498930aff39ab57dbea57edffd2393.jpg'); background-size: cover;" class="dashboard-item">
       <h3>So far, you have visited <%= @destinations.where(status: 1).length %> countries out of your goal of <%= @user.number_countries %></h3>
