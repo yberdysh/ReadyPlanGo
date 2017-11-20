@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :country
+  belongs_to :user
   validates :content, presence: true
   validates :rating, presence: true
   validates_inclusion_of :rating, :in => 0..5

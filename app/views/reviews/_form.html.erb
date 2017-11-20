@@ -1,0 +1,12 @@
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+    <%= simple_form_for [@country, @review] do |f| %>
+      <%= f.input :content, placeholder: "Great place" %>
+      <%= f.input :rating, placeholder: "0-5" %>
+      <%= f.submit "Post review", class: "btn btn-primary"%>
+    <% end %>
+
+    <%= link_to "Cancel", country_path(@country), :class => "btn btn-danger" %>
+    </div>
+  </div>
