@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   resources :countries, only: [:show, :index]
   resources :countries, only: [:show] do
-    resources :destinations, only: [:update, :edit]
-    resources :reviews, only: [:new, :create]
-  end
+  resources :destinations, only: [:update, :edit]
+  resources :reviews, only: [:new, :create, :destroy, :edit, :update]
+end
 
 
   get 'destination_select', to: 'pages#destination_select'

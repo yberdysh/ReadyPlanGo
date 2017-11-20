@@ -11,11 +11,39 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     authorize @review
     @review.country = @country
+    @review.user = current_user
     if @review.save
       redirect_to country_path(@country)
     else
       render :new
     end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+    authorize @review
+    @review.country = @country
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    authorize @review
+    @review.country = @country
+    @review.user = current_user
+    @review.update(review_params)
+    if @review.save
+      redirect_to country_path(@country)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    authorize @review
+    @review.country = @country
+    @review.destroy
+    redirect_to country_path(@country)
   end
 
   private
