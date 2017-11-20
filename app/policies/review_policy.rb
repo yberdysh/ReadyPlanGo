@@ -13,4 +13,28 @@ class ReviewPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def edit?
+    if record.user == user
+     true
+    else
+     false
+    end
+  end
+
+  def update?
+    if record.user == user
+      true
+    else
+      false
+    end
+  end
+
+  def destroy?
+    if record.user == user
+      true
+    else
+      false
+    end
+  end
 end

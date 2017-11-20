@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :destinations, only: [:create, :destroy, :update]
   resources :countries, only: [:show] do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :destroy, :edit, :update]
   end
 
 
