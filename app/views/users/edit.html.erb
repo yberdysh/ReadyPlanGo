@@ -1,1 +1,23 @@
-<%= render 'form' %>
+<div class="container edit-container">
+  <%= simple_form_for [@user] do |f| %>
+    <%= f.error_notification %>
+    <div class="goal-set">
+      I want to visit <%= f.input :number_countries, input_html: {value: params[:countries]}, label: false %> countries in <%= f.input :years, input_html: {value: params[:years]}, label: false %> years.
+    </div>
+    <div class="text-center" style="margin-bottom: 5vh">
+      <% avatar_url = current_user.facebook_picture_url || current_user.photo.url %>
+      <% if avatar_url.nil? %>
+        <% avatar_url = image_path("blank_avatar.jpg") %>
+      <% end %>
+      <%= image_tag avatar_url, class: "style_image" %>
+      <%= f.input :photo, label: false, class: "text-center" %>
+      <%= f.input :photo_cache, as: :hidden, class: "text-center" %>
+      <p>First Name<%= f.input :first_name, label: false %></p>
+      <p>Last Name<%= f.input :last_name, label: false %></p>
+      <p>Email<%= f.input :email, label: false %></p>
+    </div>
+    <div class="text-center">
+      <%= f.button :submit, "Submit changes", class: "globegetter-button-pink"%>
+    </div>
+  <% end %>
+</div>
