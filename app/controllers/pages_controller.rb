@@ -19,19 +19,19 @@ class PagesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@destinations) do |destination, marker|
       if destination.status == 1
        marker.picture({
-        url: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|007FFF|000000",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210345/feaqayjeykdcoecgd20z.png",
         width: 50,
         height: 32
        })
       elsif destination.status == 2
        marker.picture({
-        url: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|F7FF12|000000",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210890/ukbvzhiukryxdgwuy2t4.png",
         width: 50,
         height: 32
        })
       elsif destination.status == 3
         marker.picture({
-        url: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|FF2B0A|000000",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210518/sel70l3jt8mxiqj5wkcp.png",
         width: 50,
         height: 32
        })
