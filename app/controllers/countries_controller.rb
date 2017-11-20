@@ -14,7 +14,6 @@ class CountriesController < ApplicationController
       marker.lat country.latitude
       marker.lng country.longitude
     end
-    destination_n = @country.destinations.where(user_id = current_user.id)
-    @destination = destination_n.first
+    @destination = @country.destinations.first
   end
 end
