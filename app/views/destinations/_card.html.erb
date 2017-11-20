@@ -3,7 +3,6 @@
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1950&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);">
    <div class="card-category"></div>
     <div class="card-description">
-
       <h2><%= link_to card.country.name, country_path(card.country)%></h2>
       <div class="icons">
         <!-- For all cards, let the user delete the destination -->
@@ -13,14 +12,14 @@
         <!-- Unless they've visited already, show a check -->
         <% case %>
         <% when card.status == 3 %>
-           <%= link_to destination_path(card, destination: {country_id: card.id, status: 1}), method: :patch do %>
+           <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, notes: card.notes}), method: :patch do %>
              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
            <% end %>
         <% when card.status == 2 %>
-          <%= link_to destination_path(card, destination: {country_id: card.id, status: 1}), method: :patch do %>
+          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, notes: card.notes}), method: :patch do %>
             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <% end %>
-          <%= link_to destination_path(card, destination: {country_id: card.id, status: 3}), method: :patch do %>
+          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 3, notes: card.notes}), method: :patch do %>
             <i class="fa fa-star-o" aria-hidden="true"></i>
           <% end %>
         <% end %>

@@ -1,0 +1,6 @@
+<p><%= destination.notes %></p>
+<%= simple_form_for([@country, destination], method: :patch) do |f| %>
+  <%= f.input :notes, label: false %>
+  <%= f.input :status, as: :hidden %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
