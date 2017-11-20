@@ -17,6 +17,11 @@
   <% %>
   <%elsif @destination.first.notes.nil? %>
     Feel free to add a note for  <%= @country.name %>
+    <%= simple_form_for([@country, @destination.first]) do |f| %>
+    <%= f.input :notes, label: false %>
+    <%= f.submit class: "btn btn-primary" %>
+<% end %>
+
   <% else %>
     <% @destination.each do |destination| %>
 

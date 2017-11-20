@@ -1,6 +1,6 @@
 class CountriesController < ApplicationController
   def index
-    @countries = Country.where("name ILIKE ?", "%#{params[:query]}%")
+    @countries = Country.where(name: "#{params[:query]}")
   end
   def show
     if  (params[:id] =~ /\A[-+]?[0-9]+\z/)

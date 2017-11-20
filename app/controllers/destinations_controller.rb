@@ -20,8 +20,7 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    @destination.status = destination_params[:status]
-    @destination.save!
+    @destination.update!(destination_params)
     redirect_to destination_select_path
   end
 
@@ -37,7 +36,7 @@ class DestinationsController < ApplicationController
     authorize @destination
   end
   def destination_params
-    params.require(:destination).permit(:country_id, :status)
+    params.require(:destination).permit(:country_id, :status, :notes)
   end
   def check_existence
     @destination_check = Destination.where(country_id: @destination.country_id)
