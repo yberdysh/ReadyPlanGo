@@ -335,17 +335,32 @@ require 'json'
 #     puts "Set #{attribute[:attribute_name]} for #{count} countries."
 #   end
 
-Language.destroy_all
+# Language.destroy_all
 
-language_file = File.read('db/country-json/country-by-languages.json')
-language_json = JSON.parse(language_file, opts = {symbolize_names: true})
-language_json.each do |item|
-  language = Language.new(name: item[:language])
-  language.country = Country.find_by(name: item[:country])
-  unless language.country.nil?
-    language.save!
+# language_file = File.read('db/country-json/country-by-languages.json')
+# language_json = JSON.parse(language_file, opts = {symbolize_names: true})
+# language_json.each do |item|
+#   language = Language.new(name: item[:language])
+#   language.country = Country.find_by(name: item[:country])
+#   unless language.country.nil?
+#     language.save!
+#   end
+# end
+
+countries = Country.all
+
+countries.each do |country|
+  if country.photo.url.nil?
+    image_url = Unsplash::Photo.search(country.name, page = 1, per_page = 1).first
+    unless image_url.nil?
+      image_url = image_url.urls.regular
+      country.remote_photo_url = image_url
+      country.save!
+    end
   end
 end
+
+
 
 
 
