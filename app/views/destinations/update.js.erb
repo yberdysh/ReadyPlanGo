@@ -1,0 +1,20 @@
+let divToUpdate = null;
+<% if @from_card == 3 %>
+  console.log(divToUpdate);
+  divToUpdate = $("#visitSoon");
+<% elsif @from_card == 2 %>
+  divToUpdate = $("#toVisit");
+<% elsif @from_card == 1 %>
+  divToUpdate = $("#visited");
+<% else %>
+//   console.log("four is happening.");
+//   const inTheMap = getElementById("destinations")";
+//   inTheMap.insertAdjacentHTML("afterbegin", "<p><%= @notes %></p>");
+// 'destinations/card', collection: destinations.where(id: @destination.id);
+<% end %>
+
+if(divToUpdate !== null) {
+  $('#destination_<%= @destination.id %>').remove();
+  divToUpdate.append("<%= j render partial: 'card', object: Destination.find(@destination.id) %>");
+  divToUpdate.children(".card").show();
+}

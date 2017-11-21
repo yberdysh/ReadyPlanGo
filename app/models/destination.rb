@@ -4,16 +4,19 @@ class Destination < ApplicationRecord
   DESTINATION_TYPES = [
     {
       # title: "<i class="fa fa-star-o" aria-hidden="true"></i><p>Countries I've Visited</p>".html_safe,
-      title: "Countries I've Visited",
-      status: 1
+      title: "Countries I've Been to",
+      status: 1,
+      id: "visited"
     },
     {
-      title: "Countries I Want to Visit",
-      status: 2
+      title: "Countries I want to visit",
+      status: 2,
+      id: "toVisit"
     },
     {
-      title: "Top Priority",
-      status: 3
+      title: "High Priority",
+      status: 3,
+      id: "visitSoon"
     }
   ]
 end
