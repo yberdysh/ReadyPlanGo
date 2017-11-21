@@ -1,10 +1,7 @@
-<!-- <body style="background: url('<%= image_path "arches.png" %>');">
- -->
+<body style="background-color: white;">
   <div class="text-center user_profile">
-    <h1> Hello <%= @user.first_name %> </h1>
+    <h1> Hello <%= @user.first_name %></h1>
 
-<!--     <%= image_tag @user.photo, :class => "style_image" %>
- -->
     <% avatar_url = current_user.facebook_picture_url || current_user.photo.url %>
     <% if avatar_url.nil? %>
       <% avatar_url = image_path("blank_avatar.jpg") %>
@@ -14,7 +11,7 @@
     <div class="edit_profile_button"><%= link_to "Edit Profile", edit_user_path(current_user), class: "globegetter-button-pink" %></div>
   </div>
 
-  <div class="dashboard-container">
+  <div class="dashboard-container user-destinations-card">
     <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
       <h3> Your goal is to visit <%= @user.number_countries %> countries over the next <%= @user.years %> years. Keep up the hard work! </h3>
     </div>
@@ -46,33 +43,34 @@
     <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1497302347632-904729bc24aa?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
       <h3> If you visit about <%= result.round %> countries every year, you will complete your goal! </h3>
     </div>
+  </div>
 
-    <% if !@destinations.where(status: 3).empty? %>
-      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-        <h3> Here are your priority countries: </h3>
-        <div class="scrolling-wrapper">
-        <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
-        </div>
+  <% if !@destinations.where(status: 3).empty? %>
+    <div class="user-destinations-card">
+      <p>Top Priority</p>
+      <div class="scrolling-wrapper">
+      <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-    <% if !@destinations.where(status: 2).empty? %>
-      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-        <h3> Here is a list of places you would like to visit.</h3>
-        <div class="scrolling-wrapper">
-          <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
-        </div>
+  <% if !@destinations.where(status: 2).empty? %>
+    <div class="user-destinations-card">
+      <p>I Want to Visit</p>
+      <div class="scrolling-wrapper">
+        <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-    <% if !@destinations.where(status: 1).empty? %>
-      <div style="background: linear-gradient(45deg, rgba(255,42,107, 0.8), rgba(255, 255, 255, 0.2) ); background-size: cover;" class="dashboard-item">
-        <h3> And here is a list of places you have been!</h3>
-        <div class="scrolling-wrapper">
-          <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
-        </div>
+  <% if !@destinations.where(status: 1).empty? %>
+    <div class="user-destinations-card">
+      <p>I've Visited</p>
+      <div class="scrolling-wrapper">
+        <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 <!--     <div class="dashboard-item">
       <div class="pie">
         <div class="slice-right"></div>
@@ -82,4 +80,4 @@
         </div>
       </div>
     </div> -->
-  </div>
+  </body>
