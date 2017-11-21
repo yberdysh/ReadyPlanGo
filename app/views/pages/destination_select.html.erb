@@ -1,12 +1,15 @@
-<div class="destinations-select-container">
-  <div class="sidebar">
-    <%= render partial: 'destinations/display_lists', locals: {destinations: @destinations} %>
+  <div class="destinations-select-container">
+    <div class="sidebar">
+      <%= render partial: 'destinations/display_lists', locals: {destinations: @destinations} %>
+    </div>
+    <div id="mainContent" class="main-content">
+      <div id="content">
+         <%= form_tag(countries_path, method: :get, remote: true) do %>
+           <%= text_field_tag :query %>
+           <%= submit_tag 'Search' %>
+         <% end %>
+        <%= render partial: 'countries/display_lists', locals: {countries: @countries} %>
+      </div>
+    </div>
   </div>
-  <div class="main-content">
-    <%= form_tag(countries_path, method: :get) do %>
-      <%= text_field_tag :query %>
-      <%= submit_tag 'Search' %>
-    <% end %>
-    <%= render partial: 'countries/display_lists', locals: {countries: @countries} %>
-  </div>
-</div>
+

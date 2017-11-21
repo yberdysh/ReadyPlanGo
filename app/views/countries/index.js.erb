@@ -1,0 +1,4 @@
+console.log("lets have some fun")
+let divToUpdate = $("#mainContent");
+$('#content').hide();
+divToUpdate.append("<%= j render(partial: 'countries/display_lists', locals: {countries: @countries}) %>")
