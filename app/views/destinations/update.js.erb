@@ -1,15 +1,11 @@
-console.log("This is happening.");
 let divToUpdate = null;
 <% if @from_card == 1 %>
-  console.log("One is happening.");
-  divToUpdate = getElementById("visitsoon");
   console.log(divToUpdate);
+  divToUpdate = $("#visitsoon");
 <% elsif @from_card == 2 %>
-  console.log("Two is happening.");
-  divToUpdate = getElementById("tovisit");
+  divToUpdate = $("#tovisit");
 <% elsif @from_card == 3 %>
-  console.log("Three is happening.");
-  divToUpdate = getElementById("visited");
+  divToUpdate = $("#visited");
 <% else %>
 //   console.log("four is happening.");
 //   const inTheMap = getElementById("destinations")";
@@ -20,5 +16,5 @@ let divToUpdate = null;
 console.log("hi");
 if(divToUpdate !== null) {
   console.log("now");
-  divToUpdate.insertAdjacentHTML("beforeend", "<%= j render partial: 'card', object: Destination.find(@destination.id)  %>");
+  divToUpdate.append("beforeend", "<%= j render partial: 'card', object: Destination.find(@destination.id)  %>");
 }
