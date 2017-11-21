@@ -20,7 +20,8 @@
 }
 
 body {
-  background-color: #F4F4F4;
+  background-color: white;
+  //background-color: #F4F4F4;
   //background-image: url('arches.png');
   &.page-pages-home, &.page-registrations-new, &.page-registrations-edit, &.page-sessions-new,
   &.page-unlocks-new, &.page-confirmations-new, &.page-passwords-new, &.page-passwords-edit {

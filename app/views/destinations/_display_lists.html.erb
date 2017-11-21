@@ -1,6 +1,6 @@
 <% Destination::DESTINATION_TYPES.reverse.each do |destination_type| %>
   <div class="status-section" id="<%= destination_type[:title].parameterize.underscore %>">
-    <h3> <%= destination_type[:title] %> </h3>
+    <h3><%= destination_type[:title] %></h3>
     <%= render partial: 'destinations/card', collection: destinations.where(status: destination_type[:status]) %>
   </div>
 <% end %>
