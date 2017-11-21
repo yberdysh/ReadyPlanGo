@@ -1,8 +1,8 @@
 <div class="text-center user_profile">
   <h1><%= @country.name %></h1>
+  <%= cl_image_tag @country.photo.url %>
 
 <div class="dashboard-container">
-
   <% if @country.average_rating > 0 %>
     <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
       <h3>Average Rating</h3>
