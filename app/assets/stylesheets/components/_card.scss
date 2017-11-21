@@ -7,6 +7,15 @@
   background-position: center;
   color: white;
   position: relative;
+  box-shadow: 0 1.5px 1px 0 rgba(37, 37, 37, 0.45);
+  border-radius: 1px;
+  border: 1px solid white;
+  &.sidebar {
+    //width: 18vw !important;
+  }
+  a {
+    color: white;
+  }
 }
 .card-user {
   position: absolute;

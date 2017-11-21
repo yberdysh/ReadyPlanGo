@@ -10,12 +10,12 @@ class Destination < ApplicationRecord
     {
       title: "Countries I want to visit",
       status: 2,
-      id: "tovisit"
+      id: "toVisit"
     },
     {
       title: "High Priority",
       status: 3,
-      id: "visitsoon"
+      id: "visitSoon"
     }
   ]
 end

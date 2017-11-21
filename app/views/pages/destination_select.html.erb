@@ -1,11 +1,12 @@
-
 <div class="destinations-select-container">
   <div class="sidebar">
     <%= render partial: 'destinations/display_lists', locals: {destinations: @destinations} %>
   </div>
+  <div class="main-content">
     <%= form_tag(countries_path, method: :get) do %>
-    <%= text_field_tag :query %>
-    <%= submit_tag 'Search' %>
+      <%= text_field_tag :query %>
+      <%= submit_tag 'Search' %>
     <% end %>
     <%= render partial: 'countries/display_lists', locals: {countries: @countries} %>
+  </div>
 </div>

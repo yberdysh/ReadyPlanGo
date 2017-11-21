@@ -1,10 +1,10 @@
 let divToUpdate = null;
-<% if @from_card == 1 %>
+<% if @from_card == 3 %>
   console.log(divToUpdate);
-  divToUpdate = $("#visitsoon");
+  divToUpdate = $("#visitSoon");
 <% elsif @from_card == 2 %>
-  divToUpdate = $("#tovisit");
-<% elsif @from_card == 3 %>
+  divToUpdate = $("#toVisit");
+<% elsif @from_card == 1 %>
   divToUpdate = $("#visited");
 <% else %>
 //   console.log("four is happening.");
@@ -13,8 +13,8 @@ let divToUpdate = null;
 // 'destinations/card', collection: destinations.where(id: @destination.id);
 <% end %>
 
-console.log("hi");
 if(divToUpdate !== null) {
-  console.log("now");
-  divToUpdate.append("beforeend", "<%= j render partial: 'card', object: Destination.find(@destination.id)  %>");
+  $('#destination_<%= @destination.id %>').remove();
+  divToUpdate.append("<%= j render partial: 'card', object: Destination.find(@destination.id) %>");
+  divToUpdate.children(".card").show();
 }

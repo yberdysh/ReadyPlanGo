@@ -1,65 +1,5 @@
-.dashboard-container {
-  margin-bottom: 2vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  //justify-content: space-around;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.style_image {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 2px solid #cccccc;
-  display: block;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
-.dashboard-item {
-  //align-self: auto;
-  //border: 1px solid rgba(255,42,107, 0.5);
-  //width: 10vh;
-  box-shadow: 0 1.5px 1px 0 rgba(255,255,255,0.45);
-  margin: 10px;
-  border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  max-width: 50vh;
-  min-height: 20vh;
-  text-align: center;
-  font-family: 'Lato', 'sans-serif';
-  font-weight: 300;
-  h3 {
-    color: #f1f1f1;
-    margin: 5px;
-    font-size: x-large;
-    font-weight: 300;
-  }
-}
-
-.user_profile {
-  font-family: 'Maven Pro', 'sans-serif' !important;
-  //color: rgba(255,42,107, 0.8);
-}
-
-.edit_profile_button {
-  margin-bottom: 2vh;
-}
-
-.user_highlight_number {
-  color: white;
-}
-
-.edit-container {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  max-width: 90vh;
-  p {
-
-  }
+.show-user-name {
+  color: $pink;
 }
 
 .pie {
@@ -159,14 +99,6 @@ $animation-speed: .3s;
     clip: rect(.3em, .5em, 1em, 0);
   }
 }
-
-
-
-
-
-
-
-
 
 
 
