@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20171121162256) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "continent"
-    t.string   "airport_code"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "airport_code"
     t.string   "currency_name"
     t.string   "capital"
     t.string   "population"

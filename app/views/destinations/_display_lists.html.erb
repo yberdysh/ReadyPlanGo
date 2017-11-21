@@ -1,5 +1,5 @@
 <% Destination::DESTINATION_TYPES.reverse.each do |destination_type| %>
-  <div class="status-section" id="<%= destination_type[:title].parameterize.underscore %>">
+  <div class="status-section" id="<%= destination_type[:id] %>">
     <h3> <%= destination_type[:title] %> </h3>
     <%= render partial: 'destinations/card', collection: destinations.where(status: destination_type[:status]) %>
   </div>
@@ -7,11 +7,7 @@
 
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
-      $('.status-section').children('.card').hide();
-      $('#high_priority').children('.card').show();
-
     $('.status-section h3').click(function(e) {
-      $('.status-section').children('.card').hide();
       $(e.currentTarget).parent().children('.card').slideToggle("linear", function() {
       });
     });
