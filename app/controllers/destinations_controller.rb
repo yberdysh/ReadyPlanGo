@@ -13,7 +13,6 @@ class DestinationsController < ApplicationController
       check_existence
       if @destination_check.empty?
         @destination.save!
-        redirect_to destination_select_path
       else
         redirect_to destination_select_path
       end
