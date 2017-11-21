@@ -3,15 +3,15 @@ class Destination < ApplicationRecord
   validates :country_id, uniqueness: true
   DESTINATION_TYPES = [
     {
-      title: "Countries I've Been to",
+      title: "Countries I've Visited",
       status: 1
     },
     {
-      title: "Countries I want to visit",
+      title: "Countries I Want to Visit",
       status: 2
     },
     {
-      title: "High Priority",
+      title: "Top Priority",
       status: 3
     }
   ]
