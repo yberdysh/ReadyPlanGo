@@ -19,6 +19,10 @@ class Country < ApplicationRecord
     return average_rating
   end
 
+  PLACEHOLDERS = [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2850&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+    "https://images.unsplash.com/photo-1445217143695-467124038776?auto=format&fit=crop&w=2866&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
+  ]
 
   CONTINENTS = [
     "Africa",

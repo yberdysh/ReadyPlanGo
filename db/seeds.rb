@@ -351,8 +351,9 @@ countries = Country.all
 
 countries.each do |country|
   if country.photo.url.nil?
-    image_url = Unsplash::Photo.search(country.name, page = 1, per_page = 1).first.urls.full
+    image_url = Unsplash::Photo.search(country.name, page = 1, per_page = 1).first
     unless image_url.nil?
+      image_url = image_url.urls.regular
       country.remote_photo_url = image_url
       country.save!
     end
