@@ -1,16 +1,16 @@
 <!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://picsum.photos/600/400?image=<%= (1..200).to_a.sample(1)[0] %>');"> -->
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('<%= card.photo.url || Country::PLACEHOLDERS.sample %>');">
+<div id="country_<%= card.id %>" class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('<%= card.photo.url || Country::PLACEHOLDERS.sample %>');">
     <div class="card-category"></div>
     <div class="card-description">
       <h2>   <%= link_to card.name, country_path(card) %></h2>
       <div class="icons">
-        <%= link_to destinations_path(destination: {country_id: card.id, status: 3}), method: :post do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 3}), method: :post, remote: true do %>
           <i class="fa fa-star-o" aria-hidden="true"></i>
         <% end %>
-        <%= link_to destinations_path(destination: {country_id: card.id, status: 2}), method: :post  do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 2}), method: :post, remote: true  do %>
           <i class="fa fa-plus-circle" aria-hidden="true"></i>
         <% end %>
-        <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post  do %>
+        <%= link_to destinations_path(destination: {country_id: card.id, status: 1}), method: :post, remote: true  do %>
           <i class="fa fa-check-circle-o" aria-hidden="true"></i>
         <% end %>
 
