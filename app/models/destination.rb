@@ -4,15 +4,18 @@ class Destination < ApplicationRecord
   DESTINATION_TYPES = [
     {
       title: "Countries I've Been to",
-      status: 1
+      status: 1,
+      id: "visited"
     },
     {
       title: "Countries I want to visit",
-      status: 2
+      status: 2,
+      id: "tovisit"
     },
     {
       title: "High Priority",
-      status: 3
+      status: 3,
+      id: "visitsoon"
     }
   ]
 end

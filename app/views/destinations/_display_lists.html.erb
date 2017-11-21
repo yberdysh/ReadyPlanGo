@@ -1,4 +1,4 @@
 <% Destination::DESTINATION_TYPES.reverse.each do |destination_type| %>
-  <h3> <%= destination_type[:title] %> </h3>
+  <h3 id="<%= destination_type[:id] %>"> <%= destination_type[:title] %> </h3>
   <%= render partial: 'destinations/card', collection: destinations.where(status: destination_type[:status]) %>
 <% end %>

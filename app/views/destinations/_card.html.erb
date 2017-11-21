@@ -6,20 +6,21 @@
       <h2><%= link_to card.country.name, country_path(card.country)%></h2>
       <div class="icons">
         <!-- For all cards, let the user delete the destination -->
+        <%= puts "it works" %>
         <%= link_to destination_path(card), method: :delete do %>
           <i class="fa fa-minus-circle" aria-hidden="true"></i>
         <% end %>
         <!-- Unless they've visited already, show a check -->
         <% case %>
         <% when card.status == 3 %>
-           <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, notes: card.notes}), method: :patch do %>
+           <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, h: 1, notes: card.notes}), method: :patch, remote: true do %>
              <i class="fa fa-check-circle-o" aria-hidden="true"></i>
            <% end %>
         <% when card.status == 2 %>
-          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, notes: card.notes}), method: :patch do %>
+          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 1, h: 1, notes: card.notes}), method: :patch, remote: true do %>
             <i class="fa fa-check-circle-o" aria-hidden="true"></i>
           <% end %>
-          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 3, notes: card.notes}), method: :patch do %>
+          <%= link_to destination_path(card, destination: {country_id: card.country.id, status: 3, h: 3, notes: card.notes}), method: :patch, remote: true do %>
             <i class="fa fa-star-o" aria-hidden="true"></i>
           <% end %>
         <% end %>

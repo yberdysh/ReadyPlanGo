@@ -38,6 +38,8 @@ class PagesController < ApplicationController
       end
       marker.lat destination.country.latitude
       marker.lng destination.country.longitude
+      # marker.json({ link: country_url(destination.country) })
+      marker.title country_url(destination.country)
     end
   end
 end
