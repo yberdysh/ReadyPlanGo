@@ -45,9 +45,19 @@
     </div>
   </div>
 
+  <div class="dashboard-container user-destinations-card">
+    <div class="pie">
+      <div class="slice-right"></div>
+      <div class="slice-left"></div>
+      <div class="percent">
+        <div class="number">75%</div>
+      </div>
+    </div>
+  </div>
+
   <% if !@destinations.where(status: 3).empty? %>
     <div class="user-destinations-card">
-      <p>Top Priority</p>
+      <p><i class="fa fa-star-o" aria-hidden="true"></i> Top Priority</p>
       <div class="scrolling-wrapper">
       <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 3) %>
       </div>
@@ -56,7 +66,7 @@
 
   <% if !@destinations.where(status: 2).empty? %>
     <div class="user-destinations-card">
-      <p>I Want to Visit</p>
+      <p><i class="fa fa-plus-circle" aria-hidden="true"></i> I Want to Visit</p>
       <div class="scrolling-wrapper">
         <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 2) %>
       </div>
@@ -65,19 +75,10 @@
 
   <% if !@destinations.where(status: 1).empty? %>
     <div class="user-destinations-card">
-      <p>I've Visited</p>
+      <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> I've Visited</p>
       <div class="scrolling-wrapper">
         <%= render partial: 'destinations/card', collection: @user.destinations.where(status: 1) %>
       </div>
     </div>
   <% end %>
-<!--     <div class="dashboard-item">
-      <div class="pie">
-        <div class="slice-right"></div>
-        <div class="slice-left"></div>
-        <div class="percent">
-          <div class="number">75%</div>
-        </div>
-      </div>
-    </div> -->
-  </body>
+</body>

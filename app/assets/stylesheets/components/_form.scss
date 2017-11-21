@@ -59,6 +59,34 @@
   }
 }
 
+.main-content form {
+  input[type="submit"] {
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(255,42,107, 0.8);
+    color: white;
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    min-height: 15px;
+    min-width: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    &:hover{
+      cursor: pointer;
+      font-family: 'Maven Pro', sans-serif;
+      text-decoration: underline;
+      color: white;
+    }
+  }
+}
+
+
 input[type="file"] {
   text-align: center;
 }
