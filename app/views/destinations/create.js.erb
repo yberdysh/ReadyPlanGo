@@ -1,1 +1,17 @@
+console.log("just kidding!!")
+let divToUpdate = null;
+<% if @destination.status == 3 %>
+  divToUpdate = $("#visitSoon");
+<% elsif @destination.status == 2 %>
+  divToUpdate = $("#toVisit");
+<% elsif @destination.status == 1 %>
+  divToUpdate = $("#visited");
+<% end %>
+
+if(divToUpdate !== null) {
+  $('#country_<%= @destination.country.id %>').hide();
+  divToUpdate.append("<%= j render partial: 'card', object: Destination.find(@destination.id) %>");
+  divToUpdate.children(".card").show();
+}
+
 
