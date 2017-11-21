@@ -6,6 +6,7 @@ class Country < ApplicationRecord
   geocoded_by :name
   after_validation :geocode, if: :name_changed?
   has_many :reviews, dependent: :destroy
+  mount_uploader :photo, PhotoUploader
 
   def average_rating
     average_rating = 0
