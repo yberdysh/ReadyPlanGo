@@ -60,6 +60,18 @@ class Country < ApplicationRecord
     end
   end
 
+  def languages_prettified
+    languages = self.languages
+
+    pretty_languages = []
+
+    languages.each do |language|
+      pretty_languages << language.to_s
+    end
+
+    pretty_languages.to_sentence
+  end
+
   def unsplash_url_utm
     "#{self.unsplash_url}?utm_source=#{ENV['UNSPLASH_INTEGRATION_NAME']}&utm_medium=referral&utm_campaign=api-credit"
   end
