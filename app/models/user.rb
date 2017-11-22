@@ -77,6 +77,7 @@ class User < ApplicationRecord
 
 
     return dataSet
+  end
 
   private
 
