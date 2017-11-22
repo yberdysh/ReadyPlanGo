@@ -241,7 +241,7 @@ COUNTRIES = {
         continent: continent.to_s,
         currency_name: country[:currency_name],
         capital: country[:capital],
-        airport_code: country[:airport_code])
+        airport_code: country[:code])
     end
   end
 
