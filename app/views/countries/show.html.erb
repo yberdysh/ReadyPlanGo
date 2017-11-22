@@ -40,24 +40,20 @@
     <p><%= @country.travel_languages %></p>
   </div>
 
-  <div id="destinations">
+  <div>
     <% if @destination.empty? %>
       <% %>
-    <%elsif @destination.first.notes.nil? %>
-      <div class="dashboard-item-note notes-border">
-        <p>Feel free to add a note for  <%= @country.name %>.</p>
-        <%= simple_form_for([@country, @destination.first], method: :patch) do |f| %>
-          <%= f.input :notes, label: false %>
-          <%= f.input :status, as: :hidden %>
-          <%= f.submit class: "btn btn-warning" %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="dashboard-item-note notes-border">
-        <% @destination.each do |destination| %>
-          <%= render 'destinations/show', destination: destination %>
-        <% end %>
-      </div>
+    <%else%>
+        <div id="notesAbsent" class="dashboard-item-note notes-border">
+          <p id="notes"></p>
+          <p id="notesPermanent"><%=@destination.first.notes%></p>
+          <p>Feel free to add a note for  <%= @country.name %>.</p>
+          <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
+            <%= f.input :notes, label: false %>
+            <%= f.input :status, as: :hidden %>
+            <%= f.submit class: "btn btn-warning" %>
+          <% end %>
+        </div>
     <% end %>
   </div>
 

@@ -28,8 +28,8 @@ class DestinationsController < ApplicationController
   end
 
   def destroy
+    p @destination
     @destination.destroy
-    redirect_to destination_select_path
   end
 
   private
