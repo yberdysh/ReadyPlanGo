@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121162256) do
+ActiveRecord::Schema.define(version: 20171121210705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20171121162256) do
     t.float    "population_density"
     t.float    "avg_temperature_in_celsius"
     t.string   "photo"
+    t.string   "photographer_first_name"
+    t.string   "photographer_last_name"
+    t.string   "photographer_username"
+    t.string   "unsplash_url"
   end
 
   create_table "destinations", force: :cascade do |t|
