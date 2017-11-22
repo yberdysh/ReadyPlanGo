@@ -1,6 +1,13 @@
 <div class="text-center user_profile">
   <h1><%= @country.name %></h1>
-  <%= cl_image_tag @country.photo.url %>
+
+<div class="image-box" style="text-align: center;"></div>
+  <div class="country-image" style="background-image: url('<%= @country.photo.url %>'); height: 500px; width: 500px;">
+    <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %>
+  </div>
+</div>
+
+
 
 <div class="dashboard-container">
   <% if @country.average_rating > 0 %>
