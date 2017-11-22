@@ -1,7 +1,6 @@
 <body style="background-color: white;">
+  <div class="dashboard-container">
   <div class="text-center user_profile">
-    <h1> Hello <%= @user.first_name %></h1>
-
     <% avatar_url = current_user.facebook_picture_url || current_user.photo.url %>
     <% if avatar_url.nil? %>
       <% avatar_url = image_path("blank_avatar.jpg") %>
@@ -10,23 +9,8 @@
 
     <div class="edit_profile_button"><%= link_to "Edit Profile", edit_user_path(current_user), class: "globegetter-button-pink" %></div>
   </div>
+</div>
 
-  <div class="dashboard-container user-destinations-card">
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
-      <h3> Your goal is to visit <%= @user.number_countries %> countries over the next <%= @user.years %> years. Keep up the hard work! </h3>
-    </div>
-
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=933&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
-      <h3> Your goal is to visit <%= @user.number_countries %> countries over the next <%= @user.years %> years. Keep up the hard work! </h3>
-    </div>
-
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1496950866446-3253e1470e8e?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
-      <h3> Your goal is to visit <%= @user.number_countries %> countries over the next <%= @user.years %> years. Keep up the hard work! </h3>
-    </div>
-
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1487581424120-18f3611a63e6?auto=format&fit=crop&w=1026&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
-      <h3> Your goal is to visit <%= @user.number_countries %> countries over the next <%= @user.years %> years. Keep up the hard work! </h3>
-    </div>
 
     <% denomenator = @user.years.to_f %>
     <% if !@destinations.where(status: 1).empty? %>
@@ -36,24 +20,34 @@
     <% end %>
     <% result = denomenator == 0 ? 0 : numerator/denomenator %>
 
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('/assets/dashboard_travel_journal-3fab72c0cc96efe62475fff4698804acbe498930aff39ab57dbea57edffd2393.jpg'); background-size: cover;" class="dashboard-item">
-      <h3>So far, you have visited <%= @destinations.where(status: 1).length %> countries out of your goal of <%= @user.number_countries %></h3>
-    </div>
-
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1497302347632-904729bc24aa?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item">
-      <h3> If you visit about <%= result.round %> countries every year, you will complete your goal! </h3>
-    </div>
-  </div>
-
-  <div class="dashboard-container user-destinations-card">
-    <div class="pie">
-      <div class="slice-right"></div>
-      <div class="slice-left"></div>
-      <div class="percent">
-        <div class="number">75%</div>
+  <div class="dashboard-container">
+    <div class="chart-card">
+      <h2><%= @user.first_name.capitalize %>'s Goal Progress</h2>
+      <div class="chart">
+      <%= render partial: 'shared/bar_chart', locals: {size: 50, id: "goalBarChart", data_set: @user.goal_progress_data} %>
+      </div>
+      <div class="info">
+        <p>Your goal is to visit <em><%= @user.number_countries %></em> countries over the next <em><%= @user.years %></em> years. Keep up the hard work!</p>
+        <p>If you visit about <em><%= result.round %></em> countries every year, you will complete your goal! </p>
       </div>
     </div>
   </div>
+
+ <div class="dashboard-container">
+  <div class="chart-card chart-card-small">
+    <h3>Continents You Want To Visit</h3>
+    <div class="chart">
+      <%= render partial: 'shared/pie_chart', locals: {size: 50, id: "continentPieChart", data_set: @user.continent_data} %>
+    </div>
+  </div>
+
+  <div class="chart-card chart-card-small">
+    <h3>Languages of your Destinations</h3>
+    <div class="chart">
+      <%= render partial: 'shared/pie_chart', locals: {size: 50, id: "languagePieChart", data_set: @user.language_data} %>
+    </div>
+  </div>
+</div>
 
   <% if !@destinations.where(status: 3).empty? %>
     <div class="user-destinations-card">
@@ -82,3 +76,6 @@
     </div>
   <% end %>
 </body>
+
+
+

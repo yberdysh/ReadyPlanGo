@@ -1,0 +1,32 @@
+.chart-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80vw;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    h2, h3 {
+      width: 100%;
+      display: block;
+
+    }
+    .chart, .info {
+      width: 45%;
+    }
+    em {
+      font-weight: bolder;
+      color: $pink;
+    }
+}
+
+.chart-card-small {
+  width: 40vw;
+  .chart {
+    width: 90%;
+  }
+}
+
+.chart-card .info, .chart-card .chart {
+    margin: 0vw;
+}
