@@ -7,8 +7,7 @@
       <h2><%= link_to card.country.name, country_path(card.country)%></h2>
       <div class="icons">
         <!-- For all cards, let the user delete the destination -->
-        <%= puts "it works" %>
-        <%= link_to destination_path(card), method: :delete do %>
+        <%= link_to destination_path(card), method: :delete, remote: true do %>
           <i class="fa fa-minus-circle" aria-hidden="true"></i>
         <% end %>
         <!-- Unless they've visited already, show a check -->
