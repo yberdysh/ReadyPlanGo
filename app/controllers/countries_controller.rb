@@ -37,7 +37,7 @@ class CountriesController < ApplicationController
         "GIG"
       when "Sydney"
         "SYD"
-      when "Tokoyo"
+      when "Tokyo"
         "HND"
       when "Cairo"
         "CAI"
