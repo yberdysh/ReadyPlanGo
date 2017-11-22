@@ -22,17 +22,14 @@ class DestinationsController < ApplicationController
   def update
     @destination.update(destination_params)
     @from_card = params[:destination][:h].to_i
-    puts "========="
-    p @destination
-    p @from_card
   end
 
   def update_status
   end
 
   def destroy
+    p @destination
     @destination.destroy
-    redirect_to destination_select_path
   end
 
   private
