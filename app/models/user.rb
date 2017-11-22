@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :destinations
   has_many :reviews
   mount_uploader :photo, PhotoUploader
-  after_create :send_welcome_email
 
   def set_defaults
     self.years  ||= 0
@@ -81,9 +80,6 @@ class User < ApplicationRecord
 
   private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
 end
 
 
