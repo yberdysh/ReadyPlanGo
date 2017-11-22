@@ -1,6 +1,6 @@
 <div class="text-center user_profile">
   <h1><%= @country.name %></h1>
-
+  <p> <%= @slip %> </p>
 <% if @country.average_rating > 0 %>
   <% @country.average_rating.round.times do %>
     <i class="fa fa-star" aria-hidden="true"></i>
