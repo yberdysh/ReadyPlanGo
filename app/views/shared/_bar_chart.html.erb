@@ -1,0 +1,75 @@
+<canvas id="<%= id %>" width="<%= size %>" height="<%= size/4 %>"></canvas>
+
+<%= content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    let ctx_<%= j id %> = document.getElementById("<%= j id %>").getContext('2d');
+
+    let data_<%= j id %> = {
+      datasets: [{
+        data: <%= raw data_set[:counts].slice(0, 10) %>,
+
+        backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.4)',
+                'rgba(54, 162, 235, 0.4)',
+                'rgba(255, 206, 86, 0.4)',
+                'rgba(75, 192, 192, 0.4)',
+                'rgba(153, 102, 255, 0.4)',
+                'rgba(255, 159, 64, 0.4)',
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+            ],
+        borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+      ],
+    }],
+
+      labels: <%= raw data_set[:labels].slice(0, 10) %>
+
+    };
+
+    let options_<%= j id %> = {
+        legend: {
+          display: false
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                beginAtZero: true
+            }]
+        }
+    };
+
+    let myBarChart_<%= j id %> = new Chart(ctx_<%= j id %>,{
+      type: 'horizontalBar',
+      data: data_<%= j id %>,
+      options: options_<%= j id %>
+    });
+  <% end %>
+<% end %>
