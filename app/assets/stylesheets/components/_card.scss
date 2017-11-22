@@ -10,13 +10,12 @@
   box-shadow: 0 1.5px 1px 0 rgba(37, 37, 37, 0.45);
   border-radius: 1px;
   border: 1px solid white;
-  &.sidebar {
-    //width: 18vw !important;
-  }
   a {
     color: white;
+    font-weight: lighter;
   }
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -35,6 +34,8 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  width: 100%;
+  text-align: left;
 }
 .card-description h2 {
   font-size: 24px;
@@ -55,4 +56,16 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.card .icons a:hover {
+  text-decoration: none;
+  color: lighten($pink, 5%);
+}
+
+.card .icons {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-between;
 }

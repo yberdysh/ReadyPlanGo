@@ -22,6 +22,7 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'webpacker', '~> 3.0'
 gem 'unsplash'
+gem 'chart-js-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

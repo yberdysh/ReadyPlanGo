@@ -38,7 +38,7 @@
     border-radius: 15px;
     background-color: rgba(255,42,107, 0.8);
     color: white;
-    font-family: 'Maven Pro', sans-serif;
+    //font-family: 'Maven Pro', sans-serif;
     font-size: 30px;
     font-weight: 380;
     min-height: 30px;
@@ -52,7 +52,7 @@
     padding-left: 30px;
     &:hover{
       cursor: pointer;
-      font-family: 'Maven Pro', sans-serif;
+      //font-family: 'Maven Pro', sans-serif;
       text-decoration: underline;
       color: white;
     }
@@ -65,7 +65,7 @@
     border-radius: 15px;
     background-color: rgba(255,42,107, 0.8);
     color: white;
-    font-family: 'Maven Pro', sans-serif;
+    //font-family: 'Maven Pro', sans-serif;
     font-size: 20px;
     font-weight: 300;
     min-height: 15px;
@@ -79,7 +79,7 @@
     padding-left: 30px;
     &:hover{
       cursor: pointer;
-      font-family: 'Maven Pro', sans-serif;
+      //font-family: 'Maven Pro', sans-serif;
       text-decoration: underline;
       color: white;
     }
@@ -95,14 +95,14 @@ input[type="file"] {
   color: rgba(255,255,255,1);
   font-size: 23px;
   font-weight: 300;
-  font-family: 'Lato', 'sans-serif';
+  //font-family: 'Lato', 'sans-serif';
 }
 
 .boolean {
   color: rgba(255,255,255,1);
   font-size: 23px;
   font-weight: 300;
-  font-family: 'Lato', 'sans-serif';
+  //font-family: 'Lato', 'sans-serif';
 }
 
 .form-bottom-margin {
