@@ -20,19 +20,19 @@ class PagesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@destinations) do |destination, marker|
       if destination.status == 1
        marker.picture({
-        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210345/feaqayjeykdcoecgd20z.png",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511388468/m2rlmgnvwwbhiykle6pw.png",
         width: 50,
         height: 32
        })
       elsif destination.status == 2
        marker.picture({
-        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210890/ukbvzhiukryxdgwuy2t4.png",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511388438/qszlulh1sntb0xz06gkl.png",
         width: 50,
         height: 32
        })
       elsif destination.status == 3
         marker.picture({
-        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511210518/sel70l3jt8mxiqj5wkcp.png",
+        url: "http://res.cloudinary.com/ddsp5wihh/image/upload/v1511388483/bxy5l1pnf1bjlvu2fcvh.png",
         width: 50,
         height: 32
        })
