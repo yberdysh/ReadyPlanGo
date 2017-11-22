@@ -23,6 +23,8 @@ gem 'redis'
 gem 'webpacker', '~> 3.0'
 gem 'unsplash'
 gem 'chart-js-rails'
+gem 'letter_opener', group: :development
+gem 'postmark-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
