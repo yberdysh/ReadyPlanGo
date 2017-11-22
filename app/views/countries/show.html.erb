@@ -1,13 +1,17 @@
 <div class="text-center user_profile">
   <h1><%= @country.name %></h1>
 
+<% if @country.average_rating > 0 %>
+  <% @country.average_rating.round.times do %>
+    <i class="fa fa-star" aria-hidden="true"></i>
+  <% end %>
+<% end %>
+
 <div class="image-box" style="text-align: center;"></div>
   <div class="country-image" style="background-image: url('<%= @country.photo.url %>'); height: 500px; width: 500px;">
     <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %>
   </div>
 </div>
-
-
 
 <div class="dashboard-container">
   <% if @country.average_rating > 0 %>
@@ -32,12 +36,44 @@
     <p><%= @country.currency_name %></p>
   </div>
 
-  <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
-    <h3>Languages for Travel</h3>
-      <p><%= @country.travel_languages %></p>
+  <% unless @country.languages.nil? %>
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+      <h3>Languages</h3>
+      <p><%= @country.languages_prettified %></p>
+    </div>
+  <% end %>
 
-    <p><%= @country.travel_languages %></p>
+  <% unless @country.population.nil? %>
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Population</h3>
+      <p><%= @country.population %></p>
   </div>
+  <% end %>
+
+  <% unless @country.national_dish.nil? %>
+      <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+      <h3>National Dish</h3>
+        <p><%= @country.national_dish %></p>
+    </div>
+  <% end %>
+
+  <% unless @country.avg_temperature_in_celsius.nil? %>
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Average Yearly Temperature</h3>
+      <p><%= @country.avg_temperature_in_celsius %> C </p>
+  </div>
+  <% end %>
+
+  <% unless @country.landlocked.nil? %>
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <h3>Landlocked?</h3>
+    <% if @country.landlocked == true %>
+      <p>Yes</p>
+    <% else %>
+      <p>No</p>
+    <% end %>
+  </div>
+  <% end %>
 
   <div>
     <% if @destination.empty? %>
@@ -67,7 +103,7 @@
         <p class="review"><%= review.content %></p>
         <p class="rating"></p>
         <% review.rating.times do %>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
         <% end %>
           <% if current_user.reviews.include? review %>
             <p><%= link_to "Edit", edit_country_review_path(@country, review) %></p>
