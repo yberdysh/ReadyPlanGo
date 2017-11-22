@@ -60,4 +60,8 @@ class Country < ApplicationRecord
     end
   end
 
+  def unsplash_url_utm
+    "#{self.unsplash_url}?utm_source=#{ENV['UNSPLASH_INTEGRATION_NAME']}&utm_medium=referral&utm_campaign=api-credit"
+  end
+
 end

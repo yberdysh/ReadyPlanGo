@@ -349,16 +349,35 @@ require 'json'
 
 countries = Country.all
 
+# angola = Country.find_by_name("Angola")
+
+# photo = Unsplash::Photo.search(angola.name, page = 1, per_page = 1)
+# angola.photographer_first_name = photo.first.user.first_name
+# angola.photographer_last_name = photo.first.user.last_name
+# angola.photographer_username = photo.first.user.username
+# angola.save!
+
+
+
 countries.each do |country|
   if country.photo.url.nil?
-    image_url = Unsplash::Photo.search(country.name, page = 1, per_page = 1).first
-    unless image_url.nil?
-      image_url = image_url.urls.regular
-      country.remote_photo_url = image_url
+    unsplash_image = Unsplash::Photo.search(country.name, page = 1, per_page = 1).first
+
+    unless unsplash_image.nil?
+      # Set unsplash params
+      unsplash_user = unsplash_image.user
+      country.photographer_first_name = unsplash_user.first_name
+      country.photographer_last_name = unsplash_user.last_name
+      country.photographer_username = unsplash_user.username
+
+      country.unsplash_url = unsplash_image.urls.regular
+      country.remote_photo_url = country.unsplash_url
       country.save!
     end
   end
 end
+
+
 
 
 
