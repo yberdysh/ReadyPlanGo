@@ -1,4 +1,4 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png"                       # should exist in `app/assets/images/`
+meta_product_name: "GlobeGetter"
+meta_title: "GlobeGetter | The world has 195 countries. How many do you want to visit?"
+meta_description: "GlobeGetter is an application for life-long travellers who want to set travel goals based on countries they want to visit."
+meta_image: "og_image.png"                       # should exist in `app/assets/images/`
