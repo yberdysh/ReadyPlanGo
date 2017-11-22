@@ -11,8 +11,9 @@ class PagesController < ApplicationController
   end
 
   def destination_select
-    @countries = Country.all
     @destinations = current_user.destinations
+
+    @countries = Country.all
   end
   def map
     @destinations = current_user.destinations
