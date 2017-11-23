@@ -9,10 +9,11 @@
           I want to visit <%= f.input :number_countries, input_html: {value: params[:countries]}, label: false %> countries over
           <%= f.input :years, input_html: {value: params[:years]}, label: false %> years.
         </div>
+          <%= f.input :photo, class: "text-center" %>
           <%= f.input :first_name, required: true, autofocus: true %>
           <%= f.input :last_name, required: true, autofocus: true %>
           <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :airport_code, required: true, label: "Home City", collection: ["Los Angeles", "New York", "Amsterdam", "Los Angeles", "Rio De Janeiro", "Sydney", "Tokyo", "Cairo", "Frankfurt", "Moscow", "Atlanta", "Toronto", "London", "New Dheli", "Dubai", "Shanghai", "Hong Kong"] %>
+          <%= f.input :airport_code, required: true, label: "Home City", collection: ["Los Angeles", "New York", "Miami", "Newark", "San Francisco", "Houston", "Washington, DC", "Dallas", "Toronto", "Montreal", "Vancouver", "London", "Amsterdam", "Frankfurt", "Moscow", "Rio De Janeiro", "Sydney", "Tokyo", "Cairo", , "Moscow", "Atlanta", "New Dheli", "Dubai", "Shanghai", "Hong Kong", ] %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
           <%= f.button :submit, "Sign up" %>
