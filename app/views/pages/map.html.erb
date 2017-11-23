@@ -14,8 +14,11 @@
        markers = handler.addMarkers(markers_json);
        handler.bounds.extendWith(markers);
        for (var i = 0; i < markers.length; i++) {
+          Object.keys(JSON.parse(markers[i].serviceObject.title)).forEach(function(key) {
+            markers[i].serviceObject[key] = JSON.parse(markers[i].serviceObject.title)[key];
+          })
           google.maps.event.addListener(markers[i].serviceObject, 'click', function(event) {
-            window.open(this.title);
+            window.open("/countries/" + this.country_id);
           });
        }
        handler.fitMapToBounds();
