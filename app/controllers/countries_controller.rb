@@ -59,21 +59,25 @@ class CountriesController < ApplicationController
         "PVG"
       when "Hong Kong"
         "HKG"
+      when nil
+        nil
       end
   end
 
   def scrape
     @slip = []
-
     destination_code = @country.airport_code
     departure_code = set_departure
-    url = "http://www.hopper.com/flights/from-#{departure_code}/to-#{destination_code}/guide"
 
-    html_file = open(url).read
-    html_doc = Nokogiri::HTML(html_file)
-    puts url
-    html_doc.search('.legend-label').each do |element|
-      @slip << element.text.strip
+    unless departure_code.nil?
+      url = "http://www.hopper.com/flights/from-#{departure_code}/to-#{destination_code}/guide"
+      @url = url
+      html_file = open(url).read
+      html_doc = Nokogiri::HTML(html_file)
+      puts url
+      html_doc.search('.legend-label').each do |element|
+        @slip << element.text.strip
+      end
     end
   end
 end
