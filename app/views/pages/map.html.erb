@@ -2,9 +2,9 @@
   <div id="map" style="width: 100%; height: 600px;"></div>
   <div class="map-container">
     <h3 class="text-center">Legend</h3>
-    <p class="map-item">Countries I've Been To</p>
-    <p class="map-item">Countries I Want to Visit</p>
-    <p class="map-item">Top Priority</p>
+    <p class="map-item"><%= image_tag 'priority.png' %>Countries I've Been To</p>
+    <p class="map-item"><%= image_tag 'want.png' %>Countries I Want to Visit</p>
+    <p class="map-item"><%= image_tag 'been.png' %>Top Priority</p>
   </div>
   <% content_for(:after_js) do %>
     <script>
