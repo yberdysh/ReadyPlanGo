@@ -86,7 +86,6 @@
      <h2>My Notes</h2>
       <div id="notesAbsent" class="user-destinations-card">
         <p id="notes"></p>
-        <p id="notesPermanent"><%=@destination.first.notes%></p>
         <p>Feel free to add a note for  <%= @country.name %>.</p>
         <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
           <%= f.input :notes, label: false %>
