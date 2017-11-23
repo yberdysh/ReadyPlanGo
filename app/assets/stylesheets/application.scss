@@ -15,12 +15,14 @@
 @import "pages/index";
 
 .main-content {
-  min-height: 100vh;
+  min-height: 100%;
+  overflow-y: scroll;
   display: block;
   #content {
     margin-top: 2vh;
   }
 }
+
 
 body {
   background-color: white;

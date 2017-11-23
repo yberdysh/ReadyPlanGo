@@ -1,15 +1,17 @@
 <div class="text-center user_profile">
   <h1><%= @country.name %></h1>
-  <a href="<%=@url%>"> <%= @slip.first %> </a>
-<% if @country.average_rating > 0 %>
-  <% @country.average_rating.round.times do %>
-    <i class="fa fa-star" aria-hidden="true"></i>
+
+  <% if @country.average_rating > 0 %>
+    <% @country.average_rating.round.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
   <% end %>
-<% end %>
+  <a href="<%=@url%>"><%= @slip.first %></a>
 
 <div class="image-box" style="text-align: center;"></div>
-  <div class="country-image" style="background-image: url('<%= @country.photo.url %>'); height: 500px; width: 500px;">
-    <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %>
+  <div class="country-image" style="background-image: url('<%= @country.photo.url %>'); height: 80vh; width: 90vw; background-repeat: no-repeat; margin-top: 1vh;">
+<!--     <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %>
+ -->
   </div>
 </div>
 
@@ -44,28 +46,28 @@
   <% end %>
 
   <% unless @country.population.nil? %>
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1489582558212-475fa5010897?auto=format&fit=crop&w=1051&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
     <h3>Population</h3>
       <p><%= @country.population %></p>
   </div>
   <% end %>
 
   <% unless @country.national_dish.nil? %>
-      <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+      <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1478749485505-2a903a729c63?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
       <h3>National Dish</h3>
         <p><%= @country.national_dish %></p>
     </div>
   <% end %>
 
   <% unless @country.avg_temperature_in_celsius.nil? %>
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1459695452562-46cc57bef5f6?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
     <h3>Average Yearly Temperature</h3>
       <p><%= @country.avg_temperature_in_celsius %> C </p>
   </div>
   <% end %>
 
   <% unless @country.landlocked.nil? %>
-    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1494552671665-4b5d938da5aa?auto=format&fit=crop&w=1502&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
+    <div style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) ), url('https://images.unsplash.com/photo-1503221043305-f7498f8b7888?auto=format&fit=crop&w=1035&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D'); background-size: cover;" class="dashboard-item-country">
     <h3>Landlocked?</h3>
     <% if @country.landlocked == true %>
       <p>Yes</p>
@@ -74,31 +76,31 @@
     <% end %>
   </div>
   <% end %>
+</div>
 
-  <div>
-    <% if @destination.empty? %>
-      <% %>
-    <%else%>
-        <div id="notesAbsent" class="dashboard-item-note notes-border">
-          <p id="notes"></p>
-          <p id="notesPermanent"><%=@destination.first.notes%></p>
-          <p>Feel free to add a note for  <%= @country.name %>.</p>
-          <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
-            <%= f.input :notes, label: false %>
-            <%= f.input :status, as: :hidden %>
-            <%= f.submit class: "btn btn-warning" %>
-          <% end %>
-        </div>
-    <% end %>
-  </div>
+<div>
+  <% if @destination.empty? %>
+    <% %>
+  <%else%>
+      <div id="notesAbsent" class="user-destinations-card">
+        <p id="notes"></p>
+        <p id="notesPermanent"><%=@destination.first.notes%></p>
+        <p>Feel free to add a note for  <%= @country.name %>.</p>
+        <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
+          <%= f.input :notes, label: false %>
+          <%= f.input :status, as: :hidden %>
+          <%= f.submit class: "btn btn-warning" %>
+        <% end %>
+      </div>
+  <% end %>
 
   <% if @country.reviews.empty? %>
-    <div class="dashboard-item-note notes-border">
+    <div class="user-destinations-card">
       <p>No reviews yet for this country. Be the first to leave a review.</p>
       <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
     </div>
   <% else %>
-    <div class="dashboard-item-note notes-border">
+    <div class="user-destinations-card">
       <% @country.reviews.each do |review| %>
         <p class="review"><%= review.content %></p>
         <p class="rating"></p>
@@ -113,8 +115,9 @@
       <% end %>
     </div>
   <% end %>
+</div>
 
-  <div id="map" class="country-map" style="width: 100%; height: 600px;"></div>
+  <div id="map" class="country-map" style="height: 600px;"></div>
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
       var handler = Gmaps.build('Google');
@@ -130,4 +133,3 @@
       });
     <% end %>
   <% end %>
-</div>

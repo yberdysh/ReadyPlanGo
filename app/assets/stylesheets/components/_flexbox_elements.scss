@@ -34,7 +34,7 @@
   //font-family: 'Lato', 'sans-serif';
   font-weight: 300;
   h3 {
-    color: #f1f1f1;
+    color: white;
     margin: 5px;
     font-size: x-large;
     font-weight: 300;
@@ -53,13 +53,13 @@
   //font-family: 'Lato', 'sans-serif';
   font-weight: 300;
   h3 {
-    color: #f1f1f1;
+    color: white;
     margin: 5px;
     font-size: x-large;
     font-weight: 400;
   }
   p {
-    color: #f1f1f1;
+    color: white;
     margin: 5px;
     font-size: large;
     font-weight: 200;
@@ -143,9 +143,10 @@
   }
   &:last-child {
     margin-bottom: 3vh;
+    border-width: 2px 0px 2px 0px;
+    border-color: ($pink);
+    border-style: solid;
   }
 }
-
-
 
 
