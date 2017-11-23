@@ -15,7 +15,7 @@
       <p>First Name<%= f.input :first_name, label: false %></p>
       <p>Last Name<%= f.input :last_name, label: false %></p>
       <p>Email<%= f.input :email, label: false %></p>
-      <p>Home City<%= f.input :airport_code, label: false, collection: ["Los Angeles", "New York", "Amsterdam", "Los Angeles", "Rio De Janeiro", "Sydney", "Tokyo", "Cairo", "Frankfurt", "Moscow", "Atlanta", "Toronto", "London", "New Dheli", "Dubai", "Shanghai", "Hong Kong"] %> </p>
+      <p>Home City<%= f.input :airport_code, required: true, collection: ["New York", "Miami", "Newark", "San Francisco", "Houston", "Washington, DC", "Los Angeles", "Atlanta", "Dallas", "Toronto", "Vancouver", "Montreal", "Amsterdam", "Paris", "Frankfurt", "Moscow", "London", "Rome", "Vienna", "Helsinki", "Copenhagen", "Zurich", "Sydney", "Tokyo", "Cairo", "New Dheli", "Dubai", "Shanghai", "Hong Kong", "Beijing", "Seoul", "Jeddah", "Sao Paulo", "Bogota", "Rio De Janeiro", "Santiago", "Lima", "Caracas", "Buenos Aires", "Quito", "Medellin", "Panama City"] %></p>
     </div>
     <div class="text-center">
       <%= f.button :submit, "Submit changes", class: "globegetter-button-pink"%>
