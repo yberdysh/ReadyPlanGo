@@ -7,7 +7,7 @@
     <p class="map-item"><%= image_tag 'been.png' %>Top Priority</p>
   </div>
   <% content_for(:after_js) do %>
-    <script>
+    <%= javascript_tag do %>
       markers_json = <%=raw @hash.to_json %>;
       handler = Gmaps.build('Google');
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
@@ -23,6 +23,6 @@
        }
        handler.fitMapToBounds();
       });
-    </script>
+    <% end %>
   <% end %>
 </div>
