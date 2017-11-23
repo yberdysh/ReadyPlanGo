@@ -33,6 +33,13 @@
     </div>
   </div>
 
+  <div class="text-center">
+    <% if @destinations.where(status: 1).empty? && @destinations.where(status: 2).empty? && @destinations.where(status: 3).empty? %>
+      <p>You don't have any destinations!</p>
+      <%= link_to "Add destinations", destination_select_path, class: "globegetter-button-pink" %>
+    <% end %>
+  </div>
+
   <% if !@destinations.where(status: 2).empty? || !@destinations.where(status: 3).empty? %>
     <div class="dashboard-container">
       <div class="chart-card chart-card-small">

@@ -120,9 +120,10 @@
   <div id="map" class="country-map" style="height: 600px;"></div>
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
+      markers_json = <%= raw @hash.to_json %>;
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(markers_json);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
         if (markers.length == 0) {
@@ -133,3 +134,18 @@
       });
     <% end %>
   <% end %>
+<!--       markers_json = <%=raw @hash.to_json %>;
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+       markers = handler.addMarkers(markers_json);
+       handler.bounds.extendWith(markers);
+       for (var i = 0; i < markers.length; i++) {
+          Object.keys(JSON.parse(markers[i].serviceObject.title)).forEach(function(key) {
+            markers[i].serviceObject[key] = JSON.parse(markers[i].serviceObject.title)[key];
+          })
+          google.maps.event.addListener(markers[i].serviceObject, 'click', function(event) {
+            window.open("/countries/" + this.country_id);
+          });
+       }
+       handler.fitMapToBounds();
+      }); -->
