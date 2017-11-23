@@ -68,10 +68,10 @@ class CountriesController < ApplicationController
     @slip = []
     destination_code = @country.airport_code
     departure_code = set_departure
-    byebug
+
     unless departure_code.nil?
       url = "http://www.hopper.com/flights/from-#{departure_code}/to-#{destination_code}/guide"
-
+      @url = url
       html_file = open(url).read
       html_doc = Nokogiri::HTML(html_file)
       puts url
