@@ -1,3 +1,32 @@
 .map-page {
-  margin: 2vh;
+  margin: 2vh 2vh 0vh 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-container {
+  display: flex;
+  padding: 1vh 1vw 0vh 1vw;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  flex-direction: column;
+  //flex-wrap: wrap;
+  justify-content: center;
+  align-items: inherit;
+  //box-shadow: 0 1.5px 1px 0 rgba(37, 37, 37, 0.45);
+  border: solid 2px $pink;
+  border-radius: 5px;
+  max-width: 28vw;
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.map-item {
+  min-height: 2vh;
+  text-align: left;
+  padding-left: 2vw;
+  padding-right: 1vw;
 }

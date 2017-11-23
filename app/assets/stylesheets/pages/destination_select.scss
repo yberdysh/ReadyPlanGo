@@ -8,11 +8,13 @@
     text-align: center;
     width: 75vw;
   }
+  height: 100vh;
 }
 
 .sidebar {
   width: 25vw;
-  min-height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
   background-color: white;
   color: #282828;
   box-shadow: 0 0 2px rgba(118, 118, 118, 0.78);
