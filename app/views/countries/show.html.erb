@@ -1,17 +1,17 @@
 <div class="text-center user_profile">
-  <h1><%= @country.name %></h1>
-
-  <% if @country.average_rating > 0 %>
-    <% @country.average_rating.round.times do %>
-      <i class="fa fa-star" aria-hidden="true"></i>
-    <% end %>
-  <% end %>
-  <a href="<%=@url%>"><%= @slip.first %></a>
-
-<div class="image-box" style="text-align: center;"></div>
-  <div class="country-image" style="background-image: url('<%= @country.photo.url %>'); height: 80vh; width: 90vw; background-repeat: no-repeat; margin-top: 1vh;">
+<!-- <div class="image-box" style="text-align: center;"></div>
+ -->
+ <div class="country-image" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('<%= @country.photo.url %>'); height: 80vh; width: 100vw; background-repeat: no-repeat; margin: 0vh auto; background-size: cover;">
 <!--     <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %>
  -->
+  <div><h1><%= @country.name %></h1></div>
+  <div>
+    <% if @country.average_rating > 0 %>
+      <% @country.average_rating.round.times do %>
+        <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+    <a href="<%=@url%>" target="_blank">Fly today for: <%= @slip.first %></a>
   </div>
 </div>
 
@@ -117,7 +117,7 @@
   <% end %>
 </div>
 
-  <div id="map" class="country-map" style="height: 600px;"></div>
+  <div id="map" class="country-map" style="height: 80vh;"></div>
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
       markers_json = <%= raw @hash.to_json %>;
@@ -134,6 +134,7 @@
       });
     <% end %>
   <% end %>
+</div>
 <!--       markers_json = <%=raw @hash.to_json %>;
       handler = Gmaps.build('Google');
       handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){

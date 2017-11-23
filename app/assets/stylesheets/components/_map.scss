@@ -29,3 +29,23 @@
   padding-left: 2vw;
   padding-right: 1vw;
 }
+
+.country-image {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin-top: 0px;
+    color: white;
+    font-size: xx-large;
+    padding: 3vh 0vh 0vh 3vh;
+    float: left;
+ }
+  a {
+    margin-top: 0px;
+    color: white;
+    font-size: x-large;
+    padding: 1vh 0vh 0vh 3vh;
+    float: left;
+    font-weight: 200;
+  }
+}
