@@ -32,7 +32,7 @@
           <p><%= @country.currency_name %></p>
         </div>
 
-        <% unless @country.languages.nil? %>
+        <% unless @country.languages.empty? %>
           <div>
             <h3><i class="fa fa-language" aria-hidden="true"></i> Languages</h3>
             <p><%= @country.languages_prettified %></p>
@@ -180,12 +180,13 @@
         </div>
     <% end %>
 
-    <% unless current_user.destinations.where(country_id: @country.id).empty? %>
+
       <h2>Reviews for <%= @country.name %></h2>
       <% if @country.reviews.empty? %>
         <div class="user-destinations-card">
-          <p>No reviews yet for this country. Be the first to leave a review.</p>
-          <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
+          <p>No reviews yet for this country.</p>
+      <% end %>
+
         </div>
       <% else %>
         <div class="user-destinations-card">
@@ -201,8 +202,9 @@
               <% end %>
           <% end %>
         </div>
-      <% end %>
-    <% end %>
+<% unless current_user.destinations.where(country_id: @country.id).empty? %>
+          <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
+          <% end %>
   </div>
 
 
