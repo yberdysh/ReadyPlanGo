@@ -15,18 +15,17 @@
 @import "pages/index";
 
 .main-content {
-  min-height: 100%;
+  min-height: 100vh;
   overflow-y: scroll;
   display: block;
   #content {
     margin-top: 2vh;
   }
-  .review-form {
-    height: 70vh;
-    overflow: none;
-  }
 }
 
+.review-form {
+    height: 70vh;
+  }
 
 body {
   background-color: white;

@@ -5,7 +5,6 @@
   <div id="mainContent" class="main-content text-center">
     <div id="content">
       <%= form_tag(countries_path, method: :get, remote: true) do %>
-
         <%= text_field_tag :query, nil, placeholder: "Enter country 🔎" %>
         <%= submit_tag(value = "Search" ) do %>
           <i class="fa fa-search"></span>
