@@ -169,10 +169,12 @@
         <div id="notesAbsent" class="user-destinations-card">
           <p id="notes"></p>
           <p>Feel free to add a note for  <%= @country.name %>.</p>
-          <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
-            <%= f.input :notes, label: false %>
-            <%= f.input :status, as: :hidden %>
-            <%= f.submit class: "btn btn-warning", value: "Update Note" %>
+          <div style="margin: 1vh 15vw;">
+            <%= simple_form_for([@country, @destination.first], h: 4, method: :patch, remote: true) do |f| %>
+              <%= f.input :notes, label: false %>
+              <%= f.input :status, as: :hidden %>
+              <%= f.submit class: "btn btn-warning", value: "Update Note" %>
+            </div>
             <div style="height: 3vh;"></div>
           <% end %>
         </div>
