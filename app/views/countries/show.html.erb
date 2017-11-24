@@ -117,13 +117,9 @@
         </div>
     <% end %>
 
-<<<<<<< HEAD
-    <div style="height: 3vh;"></div>
 
-=======
   <div style="height: 3vh;"></div>
   <% unless current_user.destinations.where(country_id: @country.id).empty? %>
->>>>>>> master
     <h2>Reviews for <%= @country.name %></h2>
     <% if @country.reviews.empty? %>
       <div class="user-destinations-card">
@@ -145,12 +141,9 @@
         <% end %>
       </div>
     <% end %>
-<<<<<<< HEAD
   </div>
-=======
   <% end %>
-</div>
->>>>>>> master
+
 
 <!-- SECTION -->
   <div id="map" class="country-map" style="height: 80vh;"></div>
