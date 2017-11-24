@@ -34,7 +34,7 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
-  width: 100%;
+  z-index: 3;
   text-align: left;
 }
 .card-description h2 {
