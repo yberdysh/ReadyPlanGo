@@ -1,7 +1,7 @@
 <div class="text-center user_profile">
 
  <!-- SECTION -->
-  <div class="country-image" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('<%= @country.photo.url %>'); height: 80vh; width: 100vw; background-repeat: no-repeat; margin: 0vh auto; background-size: 100% auto; background-position: center; display: flex; flex-direction: row; justify-content: space-between">
+  <div class="country-image" style="background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('<%= @country.photo.url %>');">
     <!--     <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %> -->
     <div class="country-info">
       <div><h1><%= @country.name %></h1></div>

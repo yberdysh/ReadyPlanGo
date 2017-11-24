@@ -1,7 +1,7 @@
 
 <!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://picsum.photos/600/400?image=<%= (1..200).to_a.sample(1)[0] %>');"> -->
 
-<div id="country_<%= card.id %>" class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('<%= card.photo.url || Country::PLACEHOLDERS.sample %>');">
+<div id="country_<%= card.id %>" class="card" style="background-image: url('<%= card.photo.url || Country::PLACEHOLDERS.sample %>');">
     <%= link_to "", country_path(card), class: "card-link" %>
     <div class="card-category"></div>
     <div class="card-description">
