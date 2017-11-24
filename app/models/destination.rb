@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
   belongs_to :country
-  validates :country_id, uniqueness: true
+  validates :country_id, uniqueness: {scope: :user_id}
   DESTINATION_TYPES = [
     {
       # title: "<i class="fa fa-star-o" aria-hidden="true"></i><p>Countries I've Visited</p>".html_safe,

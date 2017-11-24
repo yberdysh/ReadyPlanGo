@@ -10,11 +10,11 @@ class DestinationsController < ApplicationController
       @destination.status = destination_params[:status]
       @destination.user_id = current_user.id
       authorize @destination
-      check_existence
-      if @destination_check.empty?
-        @destination.save!
-      else
-        redirect_to destination_select_path
+      @destination.save!
+
+      respond_to do |format|
+        format.html { render 'pages/destination_select'}
+        format.js
       end
   end
 
@@ -29,7 +29,7 @@ class DestinationsController < ApplicationController
 
   def destroy
     p @destination
-    @destination.destroy
+    @destination.destroy!
   end
 
   private
