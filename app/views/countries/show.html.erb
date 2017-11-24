@@ -198,7 +198,6 @@
             <% end %>
               <% if current_user.reviews.include? review %>
                 <p><%= link_to "Edit", edit_country_review_path(@country, review) %> <%= link_to "Delete", country_review_path(@country, review), method: :delete, data: { confirm: "Are you sure?"} %></p>
-                <p><%= link_to "Add Review", new_country_review_path(@country), :class => "btn btn-warning" %></p>
               <% end %>
           <% end %>
         </div>
