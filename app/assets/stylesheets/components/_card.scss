@@ -10,14 +10,31 @@
   box-shadow: 0 1.5px 1px 0 rgba(37, 37, 37, 0.45);
   border-radius: 1px;
   border: 1px solid white;
+  transition: box-shadow 0.5s ease;
+  &::before {
+    content: "";
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
   a {
     color: white;
     font-weight: lighter;
+    transition: color 0.25s ease;
+    &:hover {
+      color: white;
+    }
   }
-}
-
-.card:hover {
-  border: 1px solid #FD306D;
+  &:hover {
+    box-shadow: 0 1.5px 3px 0 $pink;
+    &::before {
+      background-image: linear-gradient(rgba(255, 42, 107,0.2), rgba(255, 42, 107,0.1));
+      mix-blend-mode: multiply;
+    }
+  }
 }
 
 .card-user {
@@ -64,7 +81,6 @@
 
 .card a:hover {
   text-decoration: none;
-  color: lighten($pink, 5%);
 }
 .card .icons a {
   margin: 0 0.25vw;

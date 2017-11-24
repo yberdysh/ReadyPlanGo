@@ -42,7 +42,14 @@
 
 .country-image {
   display: flex;
-  flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  margin: 0vh auto;
+  background-size: cover;
+  background-position: center;
+  flex-direction: row;
+  justify-content: space-between;
   h1 {
     margin-top: 0px;
     color: white;
