@@ -16,6 +16,10 @@
   }
 }
 
+.card:hover {
+  border: 1px solid #FD306D;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -54,9 +58,9 @@
   background: black;
   opacity: 0;
 }
-.card-link:hover {
-  opacity: 0.1;
-}
+// .card-link:hover {
+//   opacity: 0.1;
+// }
 
 .card .icons a {
   margin: 0 0.25vw;
