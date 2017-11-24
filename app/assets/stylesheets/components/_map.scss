@@ -17,6 +17,9 @@
   border: solid 2px $pink;
   border-radius: 5px;
   max-width: 28vw;
+  position: absolute;
+  bottom: 245px;
+  background-color: rgba(255, 255, 255, .5);
   h3 {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -46,7 +49,7 @@
     font-size: x-large;
     padding: 1vh 0vh 0vh 3vh;
     float: left;
-    font-weight: 200;
+    font-weight: 400;
   }
   .stars-box {
     padding: 0vh 0vh 3vh 3vh;
