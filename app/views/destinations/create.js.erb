@@ -7,7 +7,7 @@ let divToUpdate = null;
 <% elsif @destination.status == 1 %>
   divToUpdate = $("#visited");
 <% end %>
-debugger;
+
 if(divToUpdate !== null) {
   $('#country_<%= @destination.country.id %>').hide();
   divToUpdate.after("<%= j render partial: 'card', object: Destination.find(@destination.id) %>");
