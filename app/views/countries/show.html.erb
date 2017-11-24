@@ -1,19 +1,79 @@
 <div class="text-center user_profile">
 
  <!-- SECTION -->
-  <div class="country-image" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('<%= @country.photo.url %>'); height: 80vh; width: 100vw; background-repeat: no-repeat; margin: 0vh auto; background-size: 100% auto; background-position: center;">
+  <div class="country-image" style="background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('<%= @country.photo.url %>'); height: 80vh; width: 100vw; background-repeat: no-repeat; margin: 0vh auto; background-size: 100% auto; background-position: center; display: flex; flex-direction: column; justify-content: space-around">
     <!--     <%= link_to "#{@country.photographer_first_name} #{@country.photographer_last_name} / Unsplash", @country.unsplash_url_utm %> -->
-    <div><h1><%= @country.name %></h1></div>
-    <div class="stars-box">
-      <% if @country.average_rating > 0 %>
-        <% @country.average_rating.round.times do %>
-          <i class="fa fa-star stars" aria-hidden="true"></i>
+    <div class="country-info">
+      <div><h1><%= @country.name %></h1></div>
+      <div class="stars-box">
+        <% if @country.average_rating > 0 %>
+          <% @country.average_rating.round.times do %>
+            <i class="fa fa-star stars" aria-hidden="true"></i>
+          <% end %>
         <% end %>
+      </div>
+      <% unless @slip.empty? %>
+        <div><a href="<%=@url%>" target="_blank">Check flight prices: <%= @slip.first %></a></div>
       <% end %>
     </div>
-    <% unless @slip.empty? %>
-      <div><a href="<%=@url%>" target="_blank">Check flight prices: <%= @slip.first %></a></div>
-    <% end %>
+    <div class="country-stats">
+        <div>
+          <p><i class="fa fa-globe" aria-hidden="true"></i> Continent</p>
+          <p><%= @country.continent %></p>
+        </div>
+
+        <div>
+          <p><i class="fa fa-map-signs" aria-hidden="true"></i> Capital</p>
+          <p><%= @country.capital %></p>
+        </div>
+
+        <div>
+          <p><i class="fa fa-money" aria-hidden="true"></i> Currency</p>
+          <p><%= @country.currency_name %></p>
+        </div>
+
+        <% unless @country.languages.nil? %>
+          <div>
+            <p><i class="fa fa-language" aria-hidden="true"></i> Languages</p>
+            <p><%= @country.languages_prettified %></p>
+          </div>
+        <% end %>
+
+        <% unless @country.population.nil? %>
+          <div>
+            <p><i class="fa fa-user" aria-hidden="true"></i> Pop.</p>
+            <p><%= @country.population %></p>
+          </div>
+        <% end %>
+
+        <% unless @country.national_dish.nil? %>
+          <div>
+            <p><i class="fa fa-cutlery" aria-hidden="true"></i> National Dish</p>
+            <p><%= @country.national_dish %></p>
+          </div>
+        <% end %>
+
+        <% unless @country.avg_temperature_in_celsius.nil? %>
+          <div>
+            <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> Avg. Temp.</p>
+            <p><%= @country.avg_temperature_in_celsius %> C </p>
+          </div>
+        <% end %>
+
+        <% unless @country.landlocked.nil? %>
+          <% if @country.landlocked == true %>
+            <div>
+              <p><i class="fa fa-ship" aria-hidden="true"></i>Landlocked?</p>
+              <p>Yes</p>
+            </div>
+          <% else %>
+            <div>
+              <p><i class="fa fa-ship" aria-hidden="true"></i>Landlocked?</p>
+              <p>No</p>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
   </div>
 
 
@@ -117,13 +177,8 @@
         </div>
     <% end %>
 
-<<<<<<< HEAD
-    <div style="height: 3vh;"></div>
-
-=======
   <div style="height: 3vh;"></div>
   <% unless current_user.destinations.where(country_id: @country.id).empty? %>
->>>>>>> master
     <h2>Reviews for <%= @country.name %></h2>
     <% if @country.reviews.empty? %>
       <div class="user-destinations-card">
@@ -145,12 +200,8 @@
         <% end %>
       </div>
     <% end %>
-<<<<<<< HEAD
-  </div>
-=======
   <% end %>
-</div>
->>>>>>> master
+  </div>
 
 <!-- SECTION -->
   <div id="map" class="country-map" style="height: 80vh;"></div>

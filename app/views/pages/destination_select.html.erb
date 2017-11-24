@@ -6,7 +6,7 @@
     <div id="content">
       <%= form_tag(countries_path, method: :get, remote: true) do %>
         <%= text_field_tag :query, nil, placeholder: 'Enter country name'%>
-        <%= submit_tag ‘Search %> <i class=“fa fa-search” aria-hidden=“true”></i>'%>
+        <%= submit_tag 'Search' %>
       <% end %>
       <%= render partial: 'countries/display_lists', locals: {countries: @countries} %>
     </div>
