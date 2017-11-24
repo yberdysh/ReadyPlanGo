@@ -12,7 +12,9 @@
       <% end %>
     <% end %>
   </div>
-  <div><a href="<%=@url%>" target="_blank">Fly today for: <%= @slip.first %></a></div>
+  <% unless @slip.empty? %>
+    <div><a href="<%=@url%>" target="_blank">Fly today for: <%= @slip.first %></a></div>
+  <% end %>
 </div>
 
 
