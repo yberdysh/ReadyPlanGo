@@ -23,7 +23,7 @@
 
 .globegetter-button-pink {
   border-radius: 15px;
-  background-color: rgba(255,42,107, 0.8);
+  background-color: rgba(255,42,107, 1);
   color: white;
   //font-family: 'Maven Pro', sans-serif;
   font-size: 25px;
@@ -40,7 +40,8 @@
   &:hover{
     cursor: pointer;
     //font-family: 'Maven Pro', sans-serif;
-    text-decoration: underline;
+    text-decoration: none;
     color: white;
+    background-color: rgba(255,42,107, 0.6);
   }
 }
