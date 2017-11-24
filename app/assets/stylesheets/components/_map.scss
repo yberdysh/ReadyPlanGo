@@ -13,16 +13,23 @@
   //flex-wrap: wrap;
   justify-content: center;
   align-items: inherit;
-  //box-shadow: 0 1.5px 1px 0 rgba(37, 37, 37, 0.45);
-  border: solid 2px $pink;
-  border-radius: 5px;
+  border-top: solid 2px #ff2a6b;
+  border-right: solid 2px #ff2a6b;
   max-width: 28vw;
   position: absolute;
-  bottom: 245px;
-  background-color: rgba(255, 255, 255, .5);
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   h3 {
     margin-top: 5px;
     margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 1em;
+    color: #ff2a6b;
+  }
+  p {
+    color: rgba(255,255,255,0.9);
+    font-weight: 300;
   }
 }
 
