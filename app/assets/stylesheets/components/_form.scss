@@ -69,8 +69,8 @@
   }
 }
 
-.main-content form {
-  input[type="submit"] {
+.main-content  {
+  form input[type="submit"], .btn-warning {
     border: none;
     border-radius: 15px;
     background-color: rgba(255,42,107, 1);
