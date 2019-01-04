@@ -4,15 +4,15 @@ Welcome to Globe-Getter! Do you love to travel? Do you have a list at the back o
 
 Globe-Getter allows you to set a long-term travel goal that you can fulfill slowly over many years making your goals more manageable and your travel dream a reality. Users are able specify how many countries they would like to visit, select specific destinations to add to their goal, and see the progress of their goal. Not sure where you want to go? Globe-Getter also provides information about different countries for users who are unsure, and even has information on how much it would cost to travel to certian destinations from a user's home airport. 
 
+## Check out the video presentation: 
+
+🌍  https://youtu.be/DKCfNe6knS0?t=1278
+
 ## TRY it on the web
 
 🌍  https://globe-getter.herokuapp.com/
 
 ![home page](https://snag.gy/RAE86Q.jpg)
-
-## Check out the video presentation: 
-
-🌍  https://youtu.be/DKCfNe6knS0?t=1278
 
 ## Download and play
 - `git clone` 
